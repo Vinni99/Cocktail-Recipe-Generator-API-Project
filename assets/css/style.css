@@ -1,0 +1,23 @@
+
+body {
+ background-color: rgb(209, 122, 122);
+ color: rgb(0, 0, 0);
+ flex-wrap: wrap;
+}
+
+.text {
+    text-align: center;
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: 3px solid black;
+}
+
+.main-container {
+padding: 5px 15px 25px 10px;
+background-color: rgb(255, 255, 255);
+}
+
+.searched-drink-container {
+    
+
+}

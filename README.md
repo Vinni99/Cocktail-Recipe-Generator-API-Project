@@ -12,7 +12,7 @@ so that I can locate and save drinks that I want to try making.
 
 ## Acceptance Criteria
 
-GIVEN I am using using a Drink Receipi app to find Drinks.
+GIVEN I am using using a Drink Recipe app to find Drinks.
 WHEN I enter a name and click the search button
 THEN a list of drinks and ingredients will be displayed
 WHEN I select a specific drink

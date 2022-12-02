@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,46 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Cocktail Recipe</title>
 </head>
+
 <body>
     <main>
         <section class="text">
             <h1 class="title">Cocktail Recipe Generator</h1>
-             "Bottoms Up"
+            "Bottoms Up"
         </section>
-    <div class="main-container">
-        <h2>Instructions:</h2>
-        <p>Click on the search button below to search for a drink you want to try. We will hold the drink for you until you try it.
-        Save those that you love for later!! Enjoy and do not drink and drive!!!
-        </p>
-        <form id="form" role="search">
-            <input type="search" id="query" name="q"
-            placeholder="Search..."
-            aria-label="Search through site content">
-            <button>Search</button>
-        </form>
-    </div>
-    <div class="container">
-        <h3>Saved Drinks:</h3>
-        <div class="box-1" id="drink"></div>
-    </div>
-    
+        <div class="main-container">
+            <h2>Instructions:</h2>
+            <p>Click on the search button below to search for a drink you want to try. We will hold the drink for you
+                until you try it.
+                Save those that you love for later!! Enjoy and do not drink and drive!!!
+            </p>
+            <form id="name-form" role="search">
+                <input type="search" id="drink-input" name="q" placeholder="Search..."
+                    aria-label="Search through site content">
+                <button>Search Name</button>
+            </form>
+            <form id="ingedient-form" role="search">
+                <input type="search" id="ingredient-input" name="q" placeholder="Search..."
+                    aria-label="Search through site content">
+                <button>Search Ingredient</button>
+            </form>
+        </div>
+        <div class="searched-drink-container">
+            <h3>Drink List:</h3>
+            <div class="box-1" id="drink"></div>
+            <div class="searched-drink" id="searched-drink-id"></div>
+            <!-- we will need to add from JS when we select  -->
+        </div>
+        <div class="saved-drink-container">
+            <h3>Saved Drinks:</h3>
+            <div class="box-1" id="drink"></div>
+            <div class="saved-drink" id="saved-drink-id"></div>
+            <!-- we will need to add from JS when we select  -->
+        </div>
+
 
     </main>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

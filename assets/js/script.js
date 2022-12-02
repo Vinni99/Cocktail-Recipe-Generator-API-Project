@@ -22,3 +22,15 @@ function drinkSubmitContainer (event) {
     alert('Please enter a drink name');
   }
 };
+var buttonClickHandler = function buttonClick (event) {
+  
+  var language = event.target.getAttribute('data-language');
+
+  // Why is this `if` block in place?
+  // TODO: if there is no language attached to the button, do not attempt to fetch repos.
+  if (language) {
+    getFeaturedRepos(language);
+
+    repoContainerEl.textContent = '';
+  }
+};

@@ -10,11 +10,12 @@
 </head>
 
 <body>
-    <main>
-        <section class="text">
+    <main class="main-flex">
+        <section class="row-1">
             <h1 class="title">Cocktail Recipe Generator</h1>
             "Bottoms Up"
         </section>
+        <div class="row-2">
         <div class="main-container">
             <h2>Instructions:</h2>
             <p>Click on the search button below to search for a drink you want to try. We will hold the drink for you
@@ -32,29 +33,32 @@
                 <button>Search Ingredient</button>
             </form>
         </div>
+
+        <br>
+
         <div class="searched-drink-container">
-            <h3>Drink List:</h3>
+            <h3 class="drink-list">Drink List:</h3>
             <div class="box-1" id="drink"></div>
             <div class="searched-drink" id="searched-drink-id"></div>
             <!-- we will need to add from JS when we select  -->
         </div>
         <div class="saved-drink-container">
-            <h3>Saved Drinks🍹🍸:</h3>
+            <h3 class="saved-drinks">Saved Drinks🍹🍸:</h3>
             <div class="box-2" id="saved"></div>
             <div class="saved-drink" id="saved-drink-id"></div>
             <!-- we will need to add from JS when we select  -->
         </div>
         <div class="my-list" id="list">
             <h3>My Drink List</h3>
-            <div class="box-3" id="menu-list"
-        </div>
+            <div class="box-3" id="menu-list"></div>
+        </div>        
 
     <div class="search" id="recipe">
     <h2>Searched Recipes:</h2>
     <div class="box-4" id="recipe-list"></div>
     </div>
     
-
+</div>
     </main>
     <script src="./assets/js/script.js"></script>
 </body>

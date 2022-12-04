@@ -2,7 +2,7 @@
 
 
 //Todo
-https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
+//https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 
 //Billy Code Work 
@@ -30,45 +30,68 @@ https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 //CSS  structure and code work
 
 //Kim Code Work
+var fetchButtonName = document.getElementById("name-form")
+var fetchButtonIngredient = document.getElementById("ingredient-form")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function getApi() {
+    // replace `octocat` with anyone else's GitHub username
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+  
+    fetch(requestUrl)
+      .then(function (response) {
+        console.log(requestUrl)
+        return response.json();
+        
+      })
+      .then(function (data) {
+        for (var i = 0; i < data.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = data[i].html_url;
+          repoList.appendChild(listItem);
+        }
+      });
+  }
+  
+  fetchButtonName.addEventListener('click', getApi);
 
 
 
 //Event Listener for button
-  $(".saveBtn").on("click", function () {
-     //Sets the variable for the input of whatever the user puts into the writable section. 
-    var input = $(this).siblings(".searched-drink").val();
-      //Save input  data to local storage
-       localStorage.setItem(input);
-  });
+//$(".saveBtn").on("click", function () {
+    //Sets the variable for the input of whatever the user puts into the writable section. 
+   //var input = $(this).siblings(".searched-drink").val();
+     //Save input  data to local storage
+      //console.log (input)
+ //});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

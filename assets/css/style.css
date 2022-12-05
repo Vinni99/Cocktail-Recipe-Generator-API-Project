@@ -5,7 +5,7 @@ body {
 }
 .main-flex {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .row-1 {
@@ -13,11 +13,20 @@ body {
     padding: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-bottom: 3px solid black;
+    flex: 1;
+    
 }
 .row-2 {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
+
+.col-1 {
+    display: flex;
+    flex-direction: row;
+}
+
 
 .main-container {
 padding: 5px 15px 25px 10px;

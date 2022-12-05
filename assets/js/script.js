@@ -32,6 +32,7 @@ https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 //Kim Code Work
 
 
+ 
 
 
 
@@ -62,18 +63,30 @@ https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 
 
-//Event Listener for button
-  $(".saveBtn").on("click", function () {
-     //Sets the variable for the input of whatever the user puts into the writable section. 
-    var input = $(this).siblings(".searched-drink").val();
-      //Save input  data to local storage
-       localStorage.setItem(input);
-  });
 
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

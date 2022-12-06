@@ -34,36 +34,77 @@ var fetchButtonName = document.getElementById("name-form")
 var fetchButtonIngredient = document.getElementById("ingredient-form")
 
 
-function getApi() {
-    // replace `octocat` with anyone else's GitHub username
-    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
-  
-    fetch(requestUrl)
-      .then(function (response) {
-        console.log(requestUrl)
-        return response.json();
-        
-      })
-      .then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = data[i].html_url;
-          repoList.appendChild(listItem);
-        }
-      });
-  }
-  
-  fetchButtonName.addEventListener('click', getApi);
+
+
+
+
+
 
 
 
 //Event Listener for button
-  // $(".saveBtn").on("click", function () {
-  //    //Sets the variable for the input of whatever the user puts into the writable section. 
-  //   var input = $(this).siblings(".searched-drink").val();
-  //     //Save input  data to local storage
-  //      localStorage.setItem(input);
-  // });
+//$(".saveBtn").on("click", function () {
+    //Sets the variable for the input of whatever the user puts into the writable section. 
+   //var input = $(this).siblings(".searched-drink").val();
+     //Save input  data to local storage
+      //console.log (input)
+ //});
+
+
+
+var fetchNameButton = document.getElementById("name-Button")
+var fetchIngredientButton = document.getElementById("ingredient-form")
+
+
+function getDrinks(event) {
+event.preventDefault()
+var drinkNameContainer = document.getElementById("drink-input").value
+console.log(drinkNameContainer)
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
+  console.log(requestUrl)
+
+    fetch(requestUrl)
+      .then(function (response) {
+        console.log(requestUrl)
+        return response.json();
+      })
+      //Need to define what the for loop is looking for here or at least before the for loop itself
+      .then(function (data) {
+        console.log(data)
+        for (var i = 0; i < data.length; i++) {
+          var chosenDrink = document.createElement('li');
+
+          chosenDrink.textContent = data[i].strDrink
+          console.log(chosenDrinks)
+          //.textContent = data[i].html_url;
+          // drinkNameContainer.appendChild(chosenDrink);
+
+        }
+        
+      });
+      
+  }
+  
+  fetchNameButton.addEventListener('click', getDrinks);
+
+  
+
+
+//Event Listener for button
+//$(".saveBtn").on("click", function () {
+    //Sets the variable for the input of whatever the user puts into the writable section. 
+   //var input = $(this).siblings(".searched-drink").val();
+     //Save input  data to local storage
+      //console.log (input)
+ //});
+
+
+
+
+
+
+
+
 
 
 
@@ -82,11 +123,27 @@ function getApi() {
 //   }
 // }
 
-// saveButton.addEventListener("click", function(event) {
-// event.preventDefault();
-// saveDrink();
-// renderSavedDrink();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 

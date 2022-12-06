@@ -1,0 +1,63 @@
+body {
+ background-color: rgb(209, 122, 122);
+ color: rgb(0, 0, 0);
+ flex-wrap: wrap;
+}
+
+.row-1 {
+    text-align: center;
+    padding: 30px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.main-container {
+padding: 5px 15px 25px 10px;
+background-color: rgb(255, 255, 255);
+}
+
+.searched-drink-container {
+    padding-top: 100px;
+    padding-bottom: 30%;
+   border-radius: 20px;
+   width: 40%;
+    background-color: rgb(255, 243, 243);
+    position: relative;
+    left: 5%;
+}
+ .drink-list {
+    position: absolute;
+    bottom: 85%;
+    left: 175px;
+    border-style: outset;
+    background-color: rgb(209, 122, 122);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ .saved-drink-container {
+    padding-top: 100px;
+    padding-bottom: 30%;
+   border-radius: 20px;
+   width: 40%;
+    background-color: rgb(255, 243, 243);
+    position: relative ;
+    left: 55%;
+    top: 15px;
+ }
+ .saved-drinks {
+    position: absolute;
+    bottom: 85%;
+    left: 175px;
+    border-style: outset;
+    background-color: rgb(209, 122, 122);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ .image-1 {
+    position: absolute;
+    left: 55%;
+ }
+ .image-2 {
+    position: absolute;
+    left: 10%;
+    top: 140%;
+ }

@@ -19,8 +19,7 @@ body {
    flex-direction: row;
 }
 
-.inner-col-1,
-{
+.inner-col-1 {
 flex: 1;
 }
 
@@ -98,4 +97,3 @@ flex: 1;
    max-width: 200;
    max-height: auto;
 
-}

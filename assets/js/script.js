@@ -30,18 +30,6 @@
 //CSS  structure and code work
 
 //Kim Code Work
-var fetchButtonName = document.getElementById("name-form")
-var fetchButtonIngredient = document.getElementById("ingredient-form")
-
-
-
-
-
-
-
-
-
-
 //Event Listener for button
 //$(".saveBtn").on("click", function () {
     //Sets the variable for the input of whatever the user puts into the writable section. 
@@ -50,76 +38,111 @@ var fetchButtonIngredient = document.getElementById("ingredient-form")
       //console.log (input)
  //});
 
-
-
 var fetchNameButton = document.getElementById("name-Button")
 var fetchIngredientButton = document.getElementById("search-ingredient")
 
 
 function getDrinks(event) {
-event.preventDefault()
-var drinkNameContainer = document.getElementById("drink-input").value
-console.log(drinkNameContainer)
+  event.preventDefault()
+  var drinkNameContainer = document.getElementById("drink-input").value
+  console.log(drinkNameContainer)
     var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
-    // var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
+// var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
   console.log(requestUrl1)
 
-    fetch(requestUrl1)
-      .then(function (response) {
-        // console.log(requestUrl1)
+  fetch(requestUrl1)
+    .then(function (response) {
+// console.log(requestUrl1)
         return response.json();
-      })
-      //Need to define what the for loop is looking for here or at least before the for loop itself
-      .then(function (data) {
-        console.log(data)
-        for (var i = 0; i < data.length; i++) {
-          var chosenDrink = document.createElement('li');
+    })
+//Need to define what the for loop is looking for here or at least before the for loop itself
+    .then(function (data) {
+      console.log(data)
+      for (var i = 0; i < data.length; i++) {
+      var chosenDrink = document.createElement('li');
 
-          chosenDrink.textContent = data[i].strDrink
-          console.log(chosenDrinks)
-          //.textContent = data[i].html_url;
-          // drinkNameContainer.appendChild(chosenDrink);
-
-        }
+      chosenDrink.textContent = data[i].strDrink
+        console.log(chosenDrinks)
+//.textContent = data[i].html_url;
+// drinkNameContainer.appendChild(chosenDrink);
+      }
         
-      });
+    });
       
-  }
+}
   
-  function getIngredients(event) {
-    event.preventDefault()
-    var drinkIngredientContainer = document.getElementById("ingredient-input").value
-    console.log(drinkIngredientContainer)
-        var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
-    //  console.log(requestUrl2)
+function getIngredients(event) {
+  event.preventDefault()
+  var drinkIngredientContainer = document.getElementById("ingredient-input").value
+  console.log(drinkIngredientContainer)
+  var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
+//console.log(requestUrl2)
      
-        fetch(requestUrl2)
-          .then(function (response) {
-            console.log(requestUrl2)
-            return response.json();
-          })
-          //Need to define what the for loop is looking for here or at least before the for loop itself
+  fetch(requestUrl2)
+    .then(function (response) {
+      console.log(requestUrl2)
+    return response.json();
+    })
+//Need to define what the for loop is looking for here or at least before the for loop itself
           .then(function (data) {
             console.log(data)
-            // for (var i = 0; i < data.length; i++) {
-            //   var chosenDrink = document.createElement('li');
+            renderDrink(data)
+          })
+
+// for (var i = 0; i < data.length; i++) {
+//var chosenDrink = document.createElement('li');
     
-            //   chosenDrink.textContent = data[i].strDrink
-            //   console.log(chosenDrinks)
-            //   //.textContent = data[i].html_url;
-            //   // drinkNameContainer.appendChild(chosenDrink);
+//chosenDrink.textContent = data[i].strDrink
+//console.log(chosenDrinks)
+//.textContent = data[i].html_url;
+//drinkNameContainer.appendChild(chosenDrink);
     
-            });
+};
             
-          };
-          
-      
+
   fetchNameButton.addEventListener('click', getDrinks);
   fetchIngredientButton.addEventListener('click', getIngredients);
-  
-  function renderIngredients () {
 
-  }
+//Function for rendering the API data to the page through JS
+function renderDrink (data) {
+  var searchedDrink = data.drinks[0]
+  var searchedDrinkDiv = document.getElementById("saved-drink")
+
+//Rendering the Drink Name
+  var searchedDrinkName = drink.strDrink;
+  var heading = document.createElement("h1");
+  heading.innerHTML = searchedDrinkName;
+  searchedDrinkDiv.appendChild(heading);
+
+//Rendering the Drink Image
+  var drinkImg = document.createElement("img")
+   drinkImg.src = drink.strDrinkThumb;
+  searchedDrinkDiv.appendChild(drinkImg);
+
+   //Loop to get the multiple ingredients
+  var drinkIngredients = document.createElement("ul");
+  searchedDrinkDiv.appendChild(drinkIngredients);
+
+  var getIngredients = object.keys(searchedDrink)
+    .filer(function (ingredient){
+      return ingredient.indexOf("strIngredient") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (searchedDrink[ingredient] != null) {
+        ingredients[ingredient] =  searchedDrink[ingredient];
+      }
+      return ingredients;
+      
+    }, {});
+  
+      for (let key in getIngredients) {
+        let value = getIngredients[key];
+        listItem = document.createElement("li");
+        listItem.innerHTML = value;
+        drinkIngredients.appendChild(listItem);
+      }
+
+  
 
 
 //Event Listener for button

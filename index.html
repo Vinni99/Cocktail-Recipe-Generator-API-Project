@@ -5,55 +5,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Cocktail Recipe</title>
 </head>
 
 <body>
-    <main>
-        <section class="text">
-            <h1 class="title">Cocktail Recipe Generator</h1>
-            "Bottoms Up"
-        </section>
-        <div class="main-container">
-            <h2>Instructions:</h2>
-            <p>Click on the search button below to search for a drink you want to try. We will hold the drink for you
-                until you try it.
-                Save those that you love for later!! Enjoy and do not drink and drive!!!
-            </p>
-            <form id="name-form" role="search">
-                <input type="search" id="drink-input" name="q" placeholder="Search..."
-                    aria-label="Search through site content">
-                <button>Search Name</button>
-            </form>
-            <form id="ingedient-form" role="search">
-                <input type="search" id="ingredient-input" name="q" placeholder="Search..."
-                    aria-label="Search through site content">
-                <button>Search Ingredient</button>
-            </form>
-        </div>
-        <div class="searched-drink-container">
-            <h3>Drink List:</h3>
-            <div class="box-1" id="drink"></div>
-            <div class="searched-drink" id="searched-drink-id"></div>
-            <!-- we will need to add from JS when we select  -->
-        </div>
-        <div class="saved-drink-container">
-            <h3>Saved Drinks🍹🍸:</h3>
-            <div class="box-2" id="saved"></div>
-            <div class="saved-drink" id="saved-drink-id"></div>
-            <!-- we will need to add from JS when we select  -->
-        </div>
-        <div class="my-list" id="list">
-            <h3>My Drink List</h3>
-            <div class="box-3" id="menu-list"
-        </div>
+    <main class=flex-container>
+        <section class="row-1">
+            <div class="image-1" class="inner-col-1">
+                <img src="API-project image.jpg" width="100px" height="100px" alt="cocktail">
+            </div>
+            <div class="inner-col-2">
+                <h1 class="title">Cocktail Recipe Generator</h1>
+                "Bottoms Up"
+            </div>
 
-    <div class="search" id="recipe">
-    <h2>Searched Recipes:</h2>
-    <div class="box-4" id="recipe-list"></div>
-    </div>
-    
+            <div class="image-2" class="inner-col-3">
+                <img src="API-project image 2.jpg" width="100px" height="100px" alt="cocktail-2">
+            </div>
+        </section>
+        <div class="row-2">
+            <div class=col-1>
+                <div class=inner-row-1>
+                    <h2>Instructions:</h2>
+                    <p>Click on the search button below to search for a drink you want to try. We will hold the drink
+                        for
+                        you
+                        until you try it.
+                        Save those that you love for later!! Enjoy and do not drink and drive!!!
+                    </p>
+                </div>
+                <div class="inner-row-2">
+                    <form id="name-form" role="search">
+                        <input type="search" id="drink-input" name="q" placeholder="Search..."
+                            aria-label="Search through site content">
+                        <button id="name-Button">Search Name</button>
+                    </form>
+                    <form id="ingedient-form" role="search">
+                        <input type="search" id="ingredient-input" name="q" placeholder="Search..."
+                            aria-label="Search through site content">
+                        <button id="search-ingredient">Search Ingredient</button>
+                    </form>
+                </div>
+                <div class="inner-row-3">
+                    <div class="saved-drink-container">
+                        <h3 class="saved-drinks">Saved Drinks🍹🍸:</h3>
+
+                        <div class="box-2" id="saved"></div>
+                        <div class="saved-drink" id="saved-drink-id"></div>
+                        <!-- we will need to add from JS when we select  -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- Added the cocktail's image-->
+            <div class=col-2>
+                <div class="searched-drink-container">
+                    <h3 class="drink-list">Drink List:</h3>
+                    <div class="box-1" id="drink"></div>
+                    <div class="searched-drink" id="searched-drink-id"></div>
+                    <!-- we will need to add from JS when we select  -->
+                </div>
+                <!-- Added the cocktail's image-->
+
+
+
+            </div>
 
     </main>
     <script src="./assets/js/script.js"></script>

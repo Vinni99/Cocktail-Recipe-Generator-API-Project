@@ -22,7 +22,7 @@
 //James Code Work
 //Save Drink from the APi
     //add from JS a button to the API data
-    //Event Listener
+    //Event Listenre
     //Store to local storage
     //Add JS Elements
 
@@ -91,20 +91,12 @@ console.log(drinkNameContainer)
 
 
 //Event Listener for button
-//$(".saveBtn").on("click", function () {
-    //Sets the variable for the input of whatever the user puts into the writable section. 
-   //var input = $(this).siblings(".searched-drink").val();
-     //Save input  data to local storage
-      //console.log (input)
- //});
-
-
-
-
-
-
-
-
+  // $(".saveBtn").on("click", function () {
+  //    //Sets the variable for the input of whatever the user puts into the writable section. 
+  //   var input = $(this).siblings(".searched-drink").val();
+  //     //Save input  data to local storage
+  //      localStorage.setItem(input);
+  // });
 
 
 
@@ -122,6 +114,14 @@ console.log(drinkNameContainer)
 //     return;
 //   }
 // }
+
+
+
+
+
+
+
+
 
 
 

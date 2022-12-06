@@ -38,18 +38,6 @@
       //console.log (input)
  //});
 
-<<<<<<< HEAD
-
-
-var fetchNameButton = document.getElementById("name-button")
-var fetchRandomButton = document.getElementById("random-drink-button")
-
-
-function getDrinks(event) {
-event.preventDefault()
-var drinkNameContainer = document.getElementById("drink-input").value
-//console.log(drinkNameContainer)
-=======
 var fetchNameButton = document.getElementById("name-Button")
 var fetchIngredientButton = document.getElementById("search-ingredient")
 
@@ -58,7 +46,6 @@ function getDrinks(event) {
   event.preventDefault()
   var drinkNameContainer = document.getElementById("drink-input").value
   console.log(drinkNameContainer)
->>>>>>> 62e901af2501d29e40ba36cae0f380339bc67f7a
     var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
 // var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
   console.log(requestUrl1)
@@ -82,14 +69,14 @@ function getDrinks(event) {
         
     });
       
-}
+  }
   
-function getIngredients(event) {
-  event.preventDefault()
-  var drinkIngredientContainer = document.getElementById("ingredient-input").value
-  console.log(drinkIngredientContainer)
-  var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
-//console.log(requestUrl2)
+  function getIngredients(event) {
+    event.preventDefault()
+    var drinkIngredientContainer = document.getElementById("ingredient-input").value
+    console.log(drinkIngredientContainer)
+        var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
+    //  console.log(requestUrl2)
      
   fetch(requestUrl2)
     .then(function (response) {

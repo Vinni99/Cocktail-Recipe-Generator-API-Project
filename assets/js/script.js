@@ -30,31 +30,45 @@
 //CSS  structure and code work
 
 //Kim Code Work
-var fetchButtonName = document.getElementById("name-form")
-var fetchButtonIngredient = document.getElementById("ingredient-form")
 
 
-function getApi() {
-    // replace `octocat` with anyone else's GitHub username
-    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
-  
+
+var fetchNameButton = document.getElementById("name-Button")
+var fetchIngredientButton = document.getElementById("ingredient-form")
+
+
+function getDrinks(event) {
+event.preventDefault()
+var drinkNameContainer = document.getElementById("drink-input").value
+console.log(drinkNameContainer)
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
+  console.log(requestUrl)
+
     fetch(requestUrl)
       .then(function (response) {
         console.log(requestUrl)
         return response.json();
-        
       })
+      //Need to define what the for loop is looking for here or at least before the for loop itself
       .then(function (data) {
+        console.log(data)
         for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = data[i].html_url;
-          repoList.appendChild(listItem);
+          var chosenDrink = document.createElement('li');
+
+          chosenDrink.textContent = data[i].strDrink
+          console.log(chosenDrinks)
+          //.textContent = data[i].html_url;
+          // drinkNameContainer.appendChild(chosenDrink);
+
         }
+        
       });
+      
   }
   
-  fetchButtonName.addEventListener('click', getApi);
+  fetchNameButton.addEventListener('click', getDrinks);
 
+  
 
 
 //Event Listener for button

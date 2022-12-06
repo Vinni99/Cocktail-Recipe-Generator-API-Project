@@ -53,13 +53,13 @@ var fetchButtonIngredient = document.getElementById("ingredient-form")
 
 
 var fetchNameButton = document.getElementById("name-button")
-var fetchIngredientButton = document.getElementById("search-ingredient")
+var fetchRandomButton = document.getElementById("random-drink-button")
 
 
 function getDrinks(event) {
 event.preventDefault()
 var drinkNameContainer = document.getElementById("drink-input").value
-console.log(drinkNameContainer)
+//console.log(drinkNameContainer)
     var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
     // var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
   console.log(requestUrl1)
@@ -86,11 +86,11 @@ console.log(drinkNameContainer)
       
   }
   //function below to run random drink on hitting "Try New Drink" Button
-  function getIngredients(event) {
+  function getRandomDrink(event) {
     event.preventDefault()
-    var drinkIngredientContainer = document.getElementById("ingredient-input").value
-    console.log(drinkIngredientContainer)
-        var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
+    var randomDrinkContainer = document.getElementById("random-drink-form").value
+    console.log(randomDrinkContainer)
+        var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/random.php?i=" + randomDrinkContainer;
     //  console.log(requestUrl2)
      
         fetch(requestUrl2)
@@ -115,7 +115,7 @@ console.log(drinkNameContainer)
           
       
   fetchNameButton.addEventListener('click', getDrinks);
-  fetchIngredientButton.addEventListener('click', getIngredients);
+  fetchRandomButton.addEventListener('click', getRandomDrink);
   
   function renderIngredients () {
 

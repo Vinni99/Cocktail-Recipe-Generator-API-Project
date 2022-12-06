@@ -124,7 +124,7 @@ function renderDrink (data) {
   searchedDrinkDiv.appendChild(drinkIngredients);
 
   var getIngredients = object.keys(searchedDrink)
-    .filer(function (ingredient){
+    .filter(function (ingredient){
       return ingredient.indexOf("strIngredient") == 0;
     })
     .reduce(function (ingredients, ingredient) {
@@ -149,7 +149,7 @@ function renderDrink (data) {
   searchedDrinkDiv.appendChild(drinkMeasurements);
 
   var getMeasurements = object.keys(searchedDrink)
-    .filer(function (measurements){
+    .filter(function (measurements){
       return measurements.indexOf("strMeasurements") == 0;
     })
     .reduce(function (measurements, measurement) {
@@ -173,7 +173,7 @@ function renderDrink (data) {
   searchedDrinkDiv.appendChild(drinkInstructions);
 
   var getInstructions = object.keys(searchedDrink)
-    .filer(function (instructions){
+    .filter(function (instructions){
       return instructions.indexOf("strInstructions") == 0;
     })
     .reduce(function (instructions, instruction) {

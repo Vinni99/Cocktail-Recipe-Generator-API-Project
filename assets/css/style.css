@@ -1,64 +1,101 @@
 body {
- background-color: rgb(209, 122, 122);
- color: rgb(0, 0, 0);
- flex-wrap: wrap;
+   background-image: linear-gradient(#b6a0a0, #ce5923);
+   color: rgb(0, 0, 0);
+   flex-wrap: wrap;
+}
+
+/* FlexBox aspects for HTML page (Baxley) */
+.flex-container {
+   display: flex;
+   flex-direction: column;
 }
 
 .row-1 {
-    text-align: center;
-    padding: 30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+   text-align: center;
+   padding: 30px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   flex: 1;
+   display: flex;
+   flex-direction: row;
 }
 
-
-.main-container {
-padding: 5px 15px 25px 10px;
-background-color: rgb(255, 255, 255);
+.inner-col-1,
+{
+flex: 1;
 }
 
+.inner-col-2 {
+   flex: 1;
+}
+
+.inner-col-3 {
+   flex: 1;
+
+}
+
+.row-2 {
+   padding: 5px 15px 25px 10px;
+   background-color: rgb(255, 255, 255);
+   flex: 5;
+   display: flex;
+   flex-direction: row;
+}
+
+.col-1 {
+   flex-direction: column;
+   display: flex;
+   flex: 1;
+}
+
+.inner-row-1,
+.inner-row-2,
+.inner-row-3 {
+   flex: 1;
+   border: solid red;
+}
+
+.col-2 {
+   flex: 1;
+   flex-direction: column;
+   border: solid red;
+}
+
+/* End Flexbox aspects (Baxley) */
 .searched-drink-container {
-    padding-top: 100px;
-    padding-bottom: 30%;
    border-radius: 20px;
-   width: 40%;
-    background-color: rgb(255, 243, 243);
-    position: relative;
-    left: 5%;
+
+   background-color: rgb(255, 243, 243);
+
 }
- .drink-list {
-    position: absolute;
-    bottom: 85%;
-    left: 175px;
-    border-style: outset;
-    background-color: rgb(209, 122, 122);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
- }
 
- .saved-drink-container {
-    padding-top: 100px;
-    padding-bottom: 30%;
+.drink-list {
+   border-style: outset;
+   background-color: rgb(209, 122, 122);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.saved-drink-container {
    border-radius: 20px;
-   width: 40%;
-    background-color: rgb(255, 243, 243);
-    position: relative ;
-    left: 55%;
-    top: 15px;
- }
- .saved-drinks {
-    position: absolute;
-    bottom: 85%;
-    left: 175px;
-    border-style: outset;
-    background-color: rgb(209, 122, 122);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
- }
 
- .image-1 {
-    position: absolute;
-    left: 55%;
- }
- .image-2 {
-    position: absolute;
-    left: 10%;
-    top: 140%;
- }
+   background-color: rgb(255, 243, 243);
+   text-align: center;
+
+}
+
+.saved-drinks {
+
+   border-style: outset;
+   background-color: rgb(209, 122, 122);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-1 {
+   max-width: 200;
+   max-height: auto;
+}
+
+.image-2 {
+   max-width: 200;
+   max-height: auto;
+
+}

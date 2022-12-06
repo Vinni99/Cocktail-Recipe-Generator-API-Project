@@ -142,9 +142,9 @@ function renderDrink (data) {
         drinkIngredients.appendChild(listItem);
       }
 
+     
+
   
-
-
 //Event Listener for button
   // $(".saveBtn").on("click", function () {
   //    //Sets the variable for the input of whatever the user puts into the writable section. 
@@ -155,11 +155,11 @@ function renderDrink (data) {
 
 
 
-// function renderSavedDrink() {
+// // function renderSavedDrink() {
 //   // Use JSON.parse() to convert text to JavaScript object
-//   var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
+// var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
 //   // Check if data is returned, if not exit out of the function
-//   if (savedDrink !== null) {
+//   if (savedDrink != null) {
 //   document.getElementById("strDrink").innerHTML = savedDrink.name;
 //   document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
 //   document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
@@ -169,6 +169,8 @@ function renderDrink (data) {
 //     return;
 //   }
 // }
+
+// can we return render drink function? minus the button
 
 
 

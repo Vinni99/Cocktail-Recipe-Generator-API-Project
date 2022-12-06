@@ -52,7 +52,7 @@ var fetchButtonIngredient = document.getElementById("ingredient-form")
 
 
 
-var fetchNameButton = document.getElementById("name-Button")
+var fetchNameButton = document.getElementById("name-button")
 var fetchIngredientButton = document.getElementById("search-ingredient")
 
 
@@ -85,7 +85,7 @@ console.log(drinkNameContainer)
       });
       
   }
-  
+  //function below to run random drink on hitting "Try New Drink" Button
   function getIngredients(event) {
     event.preventDefault()
     var drinkIngredientContainer = document.getElementById("ingredient-input").value

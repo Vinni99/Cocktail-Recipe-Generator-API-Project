@@ -2,7 +2,7 @@
 
 
 //Todo
-https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
+//https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 
 //Billy Code Work 
@@ -22,7 +22,7 @@ https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 //James Code Work
 //Save Drink from the APi
     //add from JS a button to the API data
-    //Event Listenre
+    //Event Listener
     //Store to local storage
     //Add JS Elements
 
@@ -30,38 +30,62 @@ https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 //CSS  structure and code work
 
 //Kim Code Work
+var fetchButtonName = document.getElementById("name-form")
+var fetchButtonIngredient = document.getElementById("ingredient-form")
+
+
+function getApi() {
+    // replace `octocat` with anyone else's GitHub username
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+  
+    fetch(requestUrl)
+      .then(function (response) {
+        console.log(requestUrl)
+        return response.json();
+        
+      })
+      .then(function (data) {
+        for (var i = 0; i < data.length; i++) {
+          var listItem = document.createElement('li');
+          listItem.textContent = data[i].html_url;
+          repoList.appendChild(listItem);
+        }
+      });
+  }
+  
+  fetchButtonName.addEventListener('click', getApi);
 
 
 
+//Event Listener for button
+  // $(".saveBtn").on("click", function () {
+  //    //Sets the variable for the input of whatever the user puts into the writable section. 
+  //   var input = $(this).siblings(".searched-drink").val();
+  //     //Save input  data to local storage
+  //      localStorage.setItem(input);
+  // });
 
 
 
+// function renderSavedDrink() {
+//   // Use JSON.parse() to convert text to JavaScript object
+//   var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
+//   // Check if data is returned, if not exit out of the function
+//   if (savedDrink !== null) {
+//   document.getElementById("strDrink").innerHTML = savedDrink.name;
+//   document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
+//   document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
+//   document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
+//   document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
+//   } else {
+//     return;
+//   }
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// saveButton.addEventListener("click", function(event) {
+// event.preventDefault();
+// saveDrink();
+// renderSavedDrink();
 
 
 

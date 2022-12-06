@@ -144,31 +144,85 @@ function renderDrink (data) {
 
      
 
+      //Loop to get the multiple measurements
+  var drinkMeasurements = document.createElement("ul");
+  searchedDrinkDiv.appendChild(drinkMeasurements);
+
+  var getMeasurements = object.keys(searchedDrink)
+    .filer(function (measurements){
+      return measurements.indexOf("strMeasurements") == 0;
+    })
+    .reduce(function (measurements, measurement) {
+      if (searchedDrink[measurements] != null) {
+        measurements[measurement] =  searchedDrink[measurement];
+      }
+      return measurements;
+      
+    }, {});
   
-//Event Listener for button
-  // $(".saveBtn").on("click", function () {
-  //    //Sets the variable for the input of whatever the user puts into the writable section. 
-  //   var input = $(this).siblings(".searched-drink").val();
-  //     //Save input  data to local storage
-  //      localStorage.setItem(input);
-  // });
+      for (let key in getMeasurements) {
+        let value = getMeasurements[key];
+        listItem = document.createElement("li");
+        listItem.innerHTML = value;
+        drinkMeasurements.appendChild(listItem);
+      }
+
+
+//Loop to get the multiple instructions
+  var drinkInstructions = document.createElement("ul");
+  searchedDrinkDiv.appendChild(drinkInstructions);
+
+  var getInstructions = object.keys(searchedDrink)
+    .filer(function (instructions){
+      return instructions.indexOf("strInstructions") == 0;
+    })
+    .reduce(function (instructions, instruction) {
+      if (searchedDrink[instruction] != null) {
+        instructions[instruction] =  searchedDrink[instruction];
+      }
+      return instructions;
+      
+    }, {});
+  
+      for (let key in getInstructions) {
+        let value = getInstructions[key];
+        listItem = document.createElement("li");
+        listItem.innerHTML = value;
+        drinkInstructions.appendChild(listItem);
+      }
+// add a button in HTML and make it Hidden until API is read?
+//or add a button in Js though the function?
 
 
 
-// // function renderSavedDrink() {
-//   // Use JSON.parse() to convert text to JavaScript object
-// var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
-//   // Check if data is returned, if not exit out of the function
-//   if (savedDrink != null) {
-//   document.getElementById("strDrink").innerHTML = savedDrink.name;
-//   document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
-//   document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
-//   document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
-//   document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
-//   } else {
-//     return;
-//   }
-// }
+
+
+// Code for saving Data to local storage and rendering it to the Saved Drink Section
+
+//  Event Listener for button
+  $(".saveBtn").on("click", function () {
+     //Sets the variable for the input of whatever the user puts into the writable section. 
+    var input = $(this).siblings(".searched-drink").val();
+      //Save input  data to local storage
+       localStorage.setItem(input);
+  });
+
+
+
+// function renderSavedDrink() {
+  // Use JSON.parse() to convert text to JavaScript object
+var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
+  // Check if data is returned, if not exit out of the function
+  if (savedDrink != null) {
+  document.getElementById("strDrink").innerHTML = savedDrink.name;
+  document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
+  document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
+  document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
+  document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
+  } else {
+    return;
+  }
+}
 
 // can we return render drink function? minus the button
 

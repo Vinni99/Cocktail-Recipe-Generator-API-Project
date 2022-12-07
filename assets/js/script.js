@@ -37,10 +37,17 @@
      //Save input  data to local storage
       //console.log (input)
  //});
+<<<<<<< HEAD
 var searchedDrinks = document.getElementById("searched-drink-id")
 var fetchNameButton = document.getElementById("name-button")
 // var fetchRandomButton = document.getElementById("random-drink-button")
 // var drinkData = 
+=======
+
+var fetchNameButton = document.getElementById("name-button")
+var fetchIngredientButton = document.getElementById("search-ingredient")
+var data = []
+>>>>>>> 84bb340 (test run failed)
 
 function getDrinks(event) {
   event.preventDefault()
@@ -55,6 +62,7 @@ function getDrinks(event) {
 // console.log(requestUrl1)
         return response.json();
     })
+<<<<<<< HEAD
 //Need to define what the for loop is looking for here or at least before the for loop itself
     .then(function (drinkData) {
       console.log(drinkData)
@@ -75,6 +83,16 @@ function getDrinks(event) {
 // chosenDrinks.textContent = drinkData[i].strDrink
 //.textContent = data[i].html_url;
 // drinkNameContainer.appendChild(chosenDrink);
+=======
+    .then(function (data) {
+            console.log(data)
+            renderDrink(data)
+          })
+//Need to define what the for loop is looking for here or at least before the for loop itself
+
+      
+};
+>>>>>>> 84bb340 (test run failed)
   
 //   function getRandomDrink(event) {
 //     event.preventDefault()
@@ -83,6 +101,7 @@ function getDrinks(event) {
 //         var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + randomDrinkContainer;
 //     //  console.log(requestUrl2)
      
+<<<<<<< HEAD
 //   fetch(requestUrl2)
 //     .then(function (response) {
 //       console.log(requestUrl2)
@@ -179,8 +198,87 @@ function getDrinks(event) {
 //       }
 // // add a button in HTML and make it Hidden until API is read?
 // //or add a button in Js though the function?
+=======
+  fetch(requestUrl2)
+    .then(function (response) {
+      console.log(requestUrl2)
+    return response.json();
+    })
+//Need to define what the for loop is looking for here or at least before the for loop itself
+    .then(function (data) {
+        console.log(data);
+        renderDrink(data);
+    })
+};
 
 
+//Function for rendering the API data to the page through JS
+function renderDrink(data) {
+  $("#searched-drink-id").append('<ul>')
+ for (var i = 0; i < data.drinks.length; i++) {
+  searchedDrinks[i] = drinkData[i]
+  $("#searched-drink-id").append('<li>${data[i}}</li>')
+ }
+
+  const drink = data.drinks[0];
+  const drinkDiv = document.getElementById("searched-drink-id");
+   const drinkName = drink.strDrink;
+
+  const heading = document.createElement("h1");
+  heading.innerHTML = drinkName;
+  drinkDiv.appendChild(heading);
+
+    const drinkImg = document.createElement("img");
+  drinkImg.src = drink.strDrinkThumb;
+  drinkDiv.appendChild(drinkImg);
+
+
+ const drinkIngredients = document.createElement("ul");
+  drinkDiv.appendChild(drinkIngredients);  
+  
+  const getIngredients = Object.keys(drink)
+    .filter(function (ingredient) {
+      return ingredient.indexOf("strIngredient") == 0;
+    })
+    .reduce(function (ingredients, ingredient) {
+      if (drink[ingredient] != null) {
+        ingredients[ingredient] = drink[ingredient];
+      }
+      return ingredients;
+    }, {});
+
+  for (let key in getIngredients) {
+    let value = getIngredients[key];
+    listItem = document.createElement("li");
+    listItem.innerHTML = value;
+    drinkIngredients.appendChild(listItem);
+  }
+
+   const drinkMeasurements = document.createElement("ul");
+  drinkDiv.appendChild(drinkMeasurements);  
+  
+  const getMeasurements = Object.keys(drink)
+    .filter(function (measurements) {
+      return measurement.indexOf("strMeasurement") == 0;
+    })
+    .reduce(function (measurements, measurement) {
+      if (drink[measurement] != null) {
+        measurements[measurement] = drink[measurement];
+      }
+      return measurements;
+    }, {});
+
+  for (let key in getMeasurements) {
+    let value = getMeasurements[key];
+    listItem = document.createElement("li");
+    listItem.innerHTML = value;
+    drinkMeasurements.appendChild(listItem);
+  }
+// add a button in HTML and make it Hidden until API is read?
+//or add a button in Js though the function?
+>>>>>>> 84bb340 (test run failed)
+
+}
 
 
 
@@ -207,8 +305,19 @@ function getDrinks(event) {
 //   document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
 //   document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
 //   } else {
+<<<<<<< HEAD
 //     // return;
 //   }
+=======
+//     return;
+//   }
+// }
+
+// can we return render drink function? minus the button
+>>>>>>> 84bb340 (test run failed)
+
+fetchNameButton.addEventListener('click', getDrinks);
+fetchIngredientButton.addEventListener('click', getIngredients);
 
 
 // // can we return render drink function? minus the button

@@ -80,6 +80,14 @@ function getDrinks(event) {
         drinkRowData.textContent = drinkData.drinks[i].strDrink
         createDrinkRow.appendChild(drinkRowData)
         searchedDrinks.append(createDrinkRow)
+
+      //   var drinkImg = document.createElement("img")
+      //   drinkImg.textContent = drinkData.drinks[i].strDrinkThumb
+      //  createDrinkRow.appendChild(drinkRowData)
+      //  searchedDrinks.append(createDrinkRow)
+
+
+
         // drinkRowData.appendChild(createDrinkRow)
 
       }
@@ -343,7 +351,7 @@ function getDrinks(event) {
 // //or add a button in Js though the function?
 >>>>>>> 44b7184 (merge conflics)
 
-}
+
 
 
 

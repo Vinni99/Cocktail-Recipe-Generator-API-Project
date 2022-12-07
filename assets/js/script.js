@@ -69,6 +69,14 @@ function getDrinks(event) {
         drinkRowData.textContent = drinkData.drinks[i].strDrink
         createDrinkRow.appendChild(drinkRowData)
         searchedDrinks.append(createDrinkRow)
+
+      //   var drinkImg = document.createElement("img")
+      //   drinkImg.textContent = drinkData.drinks[i].strDrinkThumb
+      //  createDrinkRow.appendChild(drinkRowData)
+      //  searchedDrinks.append(createDrinkRow)
+
+
+
         // drinkRowData.appendChild(createDrinkRow)
 
       }
@@ -184,7 +192,7 @@ function getDrinks(event) {
 // // add a button in HTML and make it Hidden until API is read?
 // //or add a button in Js though the function?
 
-}
+
 
 
 

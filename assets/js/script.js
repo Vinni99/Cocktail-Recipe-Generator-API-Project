@@ -37,10 +37,10 @@
      //Save input  data to local storage
       //console.log (input)
  //});
-
-var fetchNameButton = document.getElementById("name-Button")
-var fetchIngredientButton = document.getElementById("search-ingredient")
-
+var searchedDrinks = document.getElementById("searched-drink-id")
+var fetchNameButton = document.getElementById("name-button")
+// var fetchRandomButton = document.getElementById("random-drink-button")
+// var drinkData = 
 
 function getDrinks(event) {
   event.preventDefault()
@@ -56,38 +56,43 @@ function getDrinks(event) {
         return response.json();
     })
 //Need to define what the for loop is looking for here or at least before the for loop itself
-    .then(function (data) {
-      console.log(data)
-      for (var i = 0; i < data.length; i++) {
-      var chosenDrink = document.createElement('li');
+    .then(function (drinkData) {
+      console.log(drinkData)
+      var createDrinkRow = document.createElement('ul');
+      for(let i = 0; i < drinkData.drinks.length; i++){
+        console.log(drinkData.drinks[i])
+        var drinkRowData = document.createElement('li')
+        drinkRowData.textContent = drinkData.drinks[i].strDrink
+        createDrinkRow.appendChild(drinkRowData)
+        searchedDrinks.append(createDrinkRow)
+        // drinkRowData.appendChild(createDrinkRow)
 
-      chosenDrink.textContent = data[i].strDrink
-        console.log(chosenDrinks)
+      }
+      // renderDrink(drinkData)
+    
+})   
+}
+// chosenDrinks.textContent = drinkData[i].strDrink
 //.textContent = data[i].html_url;
 // drinkNameContainer.appendChild(chosenDrink);
-      }
-        
-    });
-      
-}
   
-function getIngredients(event) {
-  event.preventDefault()
-  var drinkIngredientContainer = document.getElementById("ingredient-input").value
-  console.log(drinkIngredientContainer)
-  var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + drinkIngredientContainer;
-//console.log(requestUrl2)
+//   function getRandomDrink(event) {
+//     event.preventDefault()
+//     var randomDrinkContainer = document.getElementById("random-drink-input").value
+//     console.log(randomDrinkContainer)
+//         var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + randomDrinkContainer;
+//     //  console.log(requestUrl2)
      
-  fetch(requestUrl2)
-    .then(function (response) {
-      console.log(requestUrl2)
-    return response.json();
-    })
-//Need to define what the for loop is looking for here or at least before the for loop itself
-          .then(function (data) {
-            console.log(data)
-            renderDrink(data)
-          })
+//   fetch(requestUrl2)
+//     .then(function (response) {
+//       console.log(requestUrl2)
+//     return response.json();
+//     })
+// //Need to define what the for loop is looking for here or at least before the for loop itself
+//           .then(function (data) {
+//             console.log(data)
+//             renderDrink(data)
+//           })
 
 // for (var i = 0; i < data.length; i++) {
 //var chosenDrink = document.createElement('li');
@@ -97,140 +102,123 @@ function getIngredients(event) {
 //.textContent = data[i].html_url;
 //drinkNameContainer.appendChild(chosenDrink);
     
-};
             
+// function renderDrink(drinkData) {
+//   var searchedDrinks = [];
+//       var chosenDrinks;
+//       var searchedDrinkDiv = document.querySelector("searched-drink-id");
+//       var displayedDrinks = document.querySelector("ul");
+//       // $("#searched-drink-id").append(`<ul>`)
+//       for (var i = 0; i < drinkData.length; i++) {
+//         searchedDrinks[i] = drinkData[i]
+//         // chosenDrinks = document.createElement('li');
+//         // $("#searched-drink-id").append(`<li>something</li>`)
 
-  fetchNameButton.addEventListener('click', getDrinks);
-  fetchIngredientButton.addEventListener('click', getIngredients);
+//         searchedDrinkDiv.appendChild(searchedDrinks[i])
+//         // console.log(displayedDrinks)
 
-//Function for rendering the API data to the page through JS
-function renderDrink (data) {
-  var searchedDrink = data.drinks[0]
-  var searchedDrinkDiv = document.getElementById("saved-drink")
-
-//Rendering the Drink Name
-  var searchedDrinkName = drink.strDrink;
-  var heading = document.createElement("h1");
-  heading.innerHTML = searchedDrinkName;
-  searchedDrinkDiv.appendChild(heading);
-
-//Rendering the Drink Image
-  var drinkImg = document.createElement("img")
-   drinkImg.src = drink.strDrinkThumb;
-  searchedDrinkDiv.appendChild(drinkImg);
-
-   //Loop to get the multiple ingredients
-  var drinkIngredients = document.createElement("ul");
-  searchedDrinkDiv.appendChild(drinkIngredients);
-
-  var getIngredients = object.keys(searchedDrink)
-    .filer(function (ingredient){
-      return ingredient.indexOf("strIngredient") == 0;
-    })
-    .reduce(function (ingredients, ingredient) {
-      if (searchedDrink[ingredient] != null) {
-        ingredients[ingredient] =  searchedDrink[ingredient];
-      }
-      return ingredients;
-      
-    }, {});
+// }
+// }
   
-      for (let key in getIngredients) {
-        let value = getIngredients[key];
-        listItem = document.createElement("li");
-        listItem.innerHTML = value;
-        drinkIngredients.appendChild(listItem);
-      }
+      // for (let key in getRandomDrink) {
+      //   let value = getRandomDrink[key];
+      //   listItem = document.createElement("li");
+      //   listItem.innerHTML = value;
+      //   drinkIngredients.appendChild(listItem);
+      // }
 
      
 
-      //Loop to get the multiple measurements
-  var drinkMeasurements = document.createElement("ul");
-  searchedDrinkDiv.appendChild(drinkMeasurements);
+//   Loop to get the multiple measurements
+//   var searchedDrink = data.drinks[0];
+    
+ 
+//   searchedDrinkDiv.appendChild(drinkMeasurements);
 
-  var getMeasurements = object.keys(searchedDrink)
-    .filer(function (measurements){
-      return measurements.indexOf("strMeasurements") == 0;
-    })
-    .reduce(function (measurements, measurement) {
-      if (searchedDrink[measurements] != null) {
-        measurements[measurement] =  searchedDrink[measurement];
-      }
-      return measurements;
+//   var getMeasurements = Object.keys(searchedDrink)
+//     .filter(function (measurements){
+//       return measurements.indexOf("strMeasurements") == 0;
+//     })
+//     .reduce(function (measurements, measurement) {
+//       if (searchedDrink[measurements] != null) {
+//         measurements[measurement] =  searchedDrink[measurement];
+//       }
+//       return measurements;
       
-    }, {});
+//     }, {});
   
-      for (let key in getMeasurements) {
-        let value = getMeasurements[key];
-        listItem = document.createElement("li");
-        listItem.innerHTML = value;
-        drinkMeasurements.appendChild(listItem);
-      }
+//       for (let key in getMeasurements) {
+//         let value = getMeasurements[key];
+//         listItem = document.createElement("li");
+//         listItem.innerHTML = value;
+//         drinkMeasurements.appendChild(listItem);
+//       }
 
 
-//Loop to get the multiple instructions
-  var drinkInstructions = document.createElement("ul");
-  searchedDrinkDiv.appendChild(drinkInstructions);
+// //Loop to get the multiple instructions
+//   var drinkInstructions = document.createElement("ul");
+//   searchedDrinkDiv.appendChild(drinkInstructions);
 
-  var getInstructions = object.keys(searchedDrink)
-    .filer(function (instructions){
-      return instructions.indexOf("strInstructions") == 0;
-    })
-    .reduce(function (instructions, instruction) {
-      if (searchedDrink[instruction] != null) {
-        instructions[instruction] =  searchedDrink[instruction];
-      }
-      return instructions;
+//   var getInstructions = object.keys(searchedDrink)
+//     .filter(function (instructions){
+//       return instructions.indexOf("strInstructions") == 0;
+//     })
+//     .reduce(function (instructions, instruction) {
+//       if (searchedDrink[instruction] != null) {
+//         instructions[instruction] =  searchedDrink[instruction];
+//       }
+//       return instructions;
       
-    }, {});
+//     }, {});
   
-      for (let key in getInstructions) {
-        let value = getInstructions[key];
-        listItem = document.createElement("li");
-        listItem.innerHTML = value;
-        drinkInstructions.appendChild(listItem);
-      }
-// add a button in HTML and make it Hidden until API is read?
-//or add a button in Js though the function?
+//       for (let key in getInstructions) {
+//         let value = getInstructions[key];
+//         listItem = document.createElement("li");
+//         listItem.innerHTML = value;
+//         drinkInstructions.appendChild(listItem);
+//       }
+// // add a button in HTML and make it Hidden until API is read?
+// //or add a button in Js though the function?
 
 
 
 
 
-// Code for saving Data to local storage and rendering it to the Saved Drink Section
+// // Code for saving Data to local storage and rendering it to the Saved Drink Section
 
-//  Event Listener for button
-  $(".saveBtn").on("click", function () {
-     //Sets the variable for the input of whatever the user puts into the writable section. 
-    var input = $(this).siblings(".searched-drink").val();
-      //Save input  data to local storage
-       localStorage.setItem(input);
-  });
-
-
-
-// function renderSavedDrink() {
-  // Use JSON.parse() to convert text to JavaScript object
-var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
-  // Check if data is returned, if not exit out of the function
-  if (savedDrink != null) {
-  document.getElementById("strDrink").innerHTML = savedDrink.name;
-  document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
-  document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
-  document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
-  document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
-  } else {
-    return;
-  }
-}
-
-// can we return render drink function? minus the button
+// //  Event Listener for button
+//   $(".saveBtn").on("click", function () {
+//      //Sets the variable for the input of whatever the user puts into the writable section. 
+//     var input = $(this).siblings(".searched-drink").val();
+//       //Save input  data to local storage
+//        localStorage.setItem(input);
+//   });
 
 
+
+// // function renderSavedDrink() {
+//   // Use JSON.parse() to convert text to JavaScript object
+// var savedDrink = JSON.parse(localStorage.getItem("searched-drink"));
+//   // Check if data is returned, if not exit out of the function
+//   if (savedDrink != null) {
+//   document.getElementById("strDrink").innerHTML = savedDrink.name;
+//   document.getElementById("strIngredient").innerHTML = savedDrink.Ingredient[0];
+//   document.getElementById("strInstruction").innerHTML = savedDrink.Instructions[0];
+//   document.getElementById("strDrinkThumb").innerHTML = savedDrink.image;
+//   document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
+//   } else {
+//     // return;
+//   }
+
+
+// // can we return render drink function? minus the button
 
 
 
 
+
+fetchNameButton.addEventListener('click', getDrinks);
+  // fetchRandomButton.addEventListener('click', getRandomDrink);
 
 
 

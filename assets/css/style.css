@@ -49,6 +49,7 @@ flex: 1;
 .inner-row-1,
 .inner-row-2,
 .inner-row-3 {
+   justify-content: center;
    flex: 1;
    border: solid red;
 }

@@ -38,6 +38,7 @@
       //console.log (input)
  //});
 <<<<<<< HEAD
+<<<<<<< HEAD
 var searchedDrinks = document.getElementById("searched-drink-id")
 var fetchNameButton = document.getElementById("name-button")
 // var fetchRandomButton = document.getElementById("random-drink-button")
@@ -48,6 +49,12 @@ var fetchNameButton = document.getElementById("name-button")
 var fetchIngredientButton = document.getElementById("search-ingredient")
 var data = []
 >>>>>>> 84bb340 (test run failed)
+=======
+var searchedDrinks = document.getElementById("searched-drink-id")
+var fetchNameButton = document.getElementById("name-button")
+// var fetchRandomButton = document.getElementById("random-drink-button")
+// var drinkData = 
+>>>>>>> 44b7184 (merge conflics)
 
 function getDrinks(event) {
   event.preventDefault()
@@ -89,10 +96,31 @@ function getDrinks(event) {
             renderDrink(data)
           })
 //Need to define what the for loop is looking for here or at least before the for loop itself
+    .then(function (drinkData) {
+      console.log(drinkData)
+      var createDrinkRow = document.createElement('ul');
+      for(let i = 0; i < drinkData.drinks.length; i++){
+        console.log(drinkData.drinks[i])
+        var drinkRowData = document.createElement('li')
+        drinkRowData.textContent = drinkData.drinks[i].strDrink
+        createDrinkRow.appendChild(drinkRowData)
+        searchedDrinks.append(createDrinkRow)
+        // drinkRowData.appendChild(createDrinkRow)
 
+<<<<<<< HEAD
       
 };
 >>>>>>> 84bb340 (test run failed)
+=======
+      }
+      // renderDrink(drinkData)
+    
+})   
+}
+// chosenDrinks.textContent = drinkData[i].strDrink
+//.textContent = data[i].html_url;
+// drinkNameContainer.appendChild(chosenDrink);
+>>>>>>> 44b7184 (merge conflics)
   
 //   function getRandomDrink(event) {
 //     event.preventDefault()
@@ -102,6 +130,9 @@ function getDrinks(event) {
 //     //  console.log(requestUrl2)
      
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 44b7184 (merge conflics)
 //   fetch(requestUrl2)
 //     .then(function (response) {
 //       console.log(requestUrl2)
@@ -112,6 +143,7 @@ function getDrinks(event) {
 //             console.log(data)
 //             renderDrink(data)
 //           })
+<<<<<<< HEAD
 
 // for (var i = 0; i < data.length; i++) {
 //var chosenDrink = document.createElement('li');
@@ -210,64 +242,70 @@ function getDrinks(event) {
         renderDrink(data);
     })
 };
+=======
+>>>>>>> 44b7184 (merge conflics)
 
+// for (var i = 0; i < data.length; i++) {
+//var chosenDrink = document.createElement('li');
+    
+//chosenDrink.textContent = data[i].strDrink
+//console.log(chosenDrinks)
+//.textContent = data[i].html_url;
+//drinkNameContainer.appendChild(chosenDrink);
+    
+            
+// function renderDrink(drinkData) {
+//   var searchedDrinks = [];
+//       var chosenDrinks;
+//       var searchedDrinkDiv = document.querySelector("searched-drink-id");
+//       var displayedDrinks = document.querySelector("ul");
+//       // $("#searched-drink-id").append(`<ul>`)
+//       for (var i = 0; i < drinkData.length; i++) {
+//         searchedDrinks[i] = drinkData[i]
+//         // chosenDrinks = document.createElement('li');
+//         // $("#searched-drink-id").append(`<li>something</li>`)
 
-//Function for rendering the API data to the page through JS
-function renderDrink(data) {
-  $("#searched-drink-id").append('<ul>')
- for (var i = 0; i < data.drinks.length; i++) {
-  searchedDrinks[i] = drinkData[i]
-  $("#searched-drink-id").append('<li>${data[i}}</li>')
- }
+//         searchedDrinkDiv.appendChild(searchedDrinks[i])
+//         // console.log(displayedDrinks)
 
-  const drink = data.drinks[0];
-  const drinkDiv = document.getElementById("searched-drink-id");
-   const drinkName = drink.strDrink;
-
-  const heading = document.createElement("h1");
-  heading.innerHTML = drinkName;
-  drinkDiv.appendChild(heading);
-
-    const drinkImg = document.createElement("img");
-  drinkImg.src = drink.strDrinkThumb;
-  drinkDiv.appendChild(drinkImg);
-
-
- const drinkIngredients = document.createElement("ul");
-  drinkDiv.appendChild(drinkIngredients);  
+// }
+// }
   
-  const getIngredients = Object.keys(drink)
-    .filter(function (ingredient) {
-      return ingredient.indexOf("strIngredient") == 0;
-    })
-    .reduce(function (ingredients, ingredient) {
-      if (drink[ingredient] != null) {
-        ingredients[ingredient] = drink[ingredient];
-      }
-      return ingredients;
-    }, {});
+      // for (let key in getRandomDrink) {
+      //   let value = getRandomDrink[key];
+      //   listItem = document.createElement("li");
+      //   listItem.innerHTML = value;
+      //   drinkIngredients.appendChild(listItem);
+      // }
 
-  for (let key in getIngredients) {
-    let value = getIngredients[key];
-    listItem = document.createElement("li");
-    listItem.innerHTML = value;
-    drinkIngredients.appendChild(listItem);
-  }
+     
 
-   const drinkMeasurements = document.createElement("ul");
-  drinkDiv.appendChild(drinkMeasurements);  
+//   Loop to get the multiple measurements
+//   var searchedDrink = data.drinks[0];
+    
+ 
+//   searchedDrinkDiv.appendChild(drinkMeasurements);
+
+//   var getMeasurements = Object.keys(searchedDrink)
+//     .filter(function (measurements){
+//       return measurements.indexOf("strMeasurements") == 0;
+//     })
+//     .reduce(function (measurements, measurement) {
+//       if (searchedDrink[measurements] != null) {
+//         measurements[measurement] =  searchedDrink[measurement];
+//       }
+//       return measurements;
+      
+//     }, {});
   
-  const getMeasurements = Object.keys(drink)
-    .filter(function (measurements) {
-      return measurement.indexOf("strMeasurement") == 0;
-    })
-    .reduce(function (measurements, measurement) {
-      if (drink[measurement] != null) {
-        measurements[measurement] = drink[measurement];
-      }
-      return measurements;
-    }, {});
+//       for (let key in getMeasurements) {
+//         let value = getMeasurements[key];
+//         listItem = document.createElement("li");
+//         listItem.innerHTML = value;
+//         drinkMeasurements.appendChild(listItem);
+//       }
 
+<<<<<<< HEAD
   for (let key in getMeasurements) {
     let value = getMeasurements[key];
     listItem = document.createElement("li");
@@ -277,6 +315,33 @@ function renderDrink(data) {
 // add a button in HTML and make it Hidden until API is read?
 //or add a button in Js though the function?
 >>>>>>> 84bb340 (test run failed)
+=======
+
+// //Loop to get the multiple instructions
+//   var drinkInstructions = document.createElement("ul");
+//   searchedDrinkDiv.appendChild(drinkInstructions);
+
+//   var getInstructions = object.keys(searchedDrink)
+//     .filter(function (instructions){
+//       return instructions.indexOf("strInstructions") == 0;
+//     })
+//     .reduce(function (instructions, instruction) {
+//       if (searchedDrink[instruction] != null) {
+//         instructions[instruction] =  searchedDrink[instruction];
+//       }
+//       return instructions;
+      
+//     }, {});
+  
+//       for (let key in getInstructions) {
+//         let value = getInstructions[key];
+//         listItem = document.createElement("li");
+//         listItem.innerHTML = value;
+//         drinkInstructions.appendChild(listItem);
+//       }
+// // add a button in HTML and make it Hidden until API is read?
+// //or add a button in Js though the function?
+>>>>>>> 44b7184 (merge conflics)
 
 }
 
@@ -306,13 +371,17 @@ function renderDrink(data) {
 //   document.getElementById("strMeasurements").innerHTML = savedDrink.measurements[0];
 //   } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
 //     // return;
 //   }
 =======
 //     return;
+=======
+//     // return;
+>>>>>>> 44b7184 (merge conflics)
 //   }
-// }
 
+<<<<<<< HEAD
 // can we return render drink function? minus the button
 >>>>>>> 84bb340 (test run failed)
 
@@ -325,6 +394,17 @@ fetchIngredientButton.addEventListener('click', getIngredients);
 
 
 
+=======
+
+// // can we return render drink function? minus the button
+
+
+
+
+
+fetchNameButton.addEventListener('click', getDrinks);
+  // fetchRandomButton.addEventListener('click', getRandomDrink);
+>>>>>>> 44b7184 (merge conflics)
 
 fetchNameButton.addEventListener('click', getDrinks);
   // fetchRandomButton.addEventListener('click', getRandomDrink);

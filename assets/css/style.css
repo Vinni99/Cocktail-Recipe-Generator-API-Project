@@ -18,9 +18,16 @@ body {
    display: flex;
    flex-direction: row;
 }
+.image-2 {
+   position: relative;
+   left: 5%;
+}
+.image-3 {
+   position: relative;
+   right: 3%;
+}
 
-.inner-col-1,
-{
+.inner-col-1 {
 flex: 1;
 }
 
@@ -89,13 +96,6 @@ flex: 1;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.image-1 {
-   max-width: 200;
-   max-height: auto;
-}
-
-.image-2 {
-   max-width: 200;
-   max-height: auto;
-
+footer {
+   text-align: center;
 }

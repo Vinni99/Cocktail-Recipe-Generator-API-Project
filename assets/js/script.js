@@ -140,9 +140,7 @@ function getRandomDrink(event) {
       }
     })   
     }
-
-
-
+    
 fetchNameButton.addEventListener('click', getDrinks);
 fetchRandomButton.addEventListener('click', getRandomDrink);
 

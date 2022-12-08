@@ -44,6 +44,7 @@ flex: 1;
    flex-direction: column;
    display: flex;
    flex: 1;
+   align-self: flex-start;
 }
 
 .inner-row-1,
@@ -51,6 +52,7 @@ flex: 1;
 .inner-row-3 {
    flex: 1;
    border: solid red;
+   
 }
 
 .col-2 {

@@ -69,7 +69,7 @@ function getDrinks(event) {
         drinkTitle.textContent = drinkData.drinks[i].strDrink;
         drinkButton.textContent = "Save Drink"
         
-        var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7 ]
+        var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7, drinkData.drinks[i].strIngredient8,drinkData.drinks[i].strIngredient9,drinkData.drinks[i].strIngredient10,drinkData.drinks[i].strIngredient11,drinkData.drinks[i].strIngredient12,drinkData.drinks[i].strIngredient13,drinkData.drinks[i].strIngredient14,drinkData.drinks[i].strIngredient15,]
         
         console.log(drinkIngredients)
         
@@ -87,7 +87,7 @@ function getDrinks(event) {
           ingredientContainer.append(drinkRowData)
         }
 // comment this back in to display the button next to the drink name
-        // drinkTitle.append(drinkButton)
+        drinkTitle.append(drinkButton)
         drinkContainerEl.append(drinkTitle,ingredientContainerTitle, ingredientContainer)
         searchedDrinks.append(drinkContainerEl)
         // drinkRowData.appendChild(createDrinkRow)

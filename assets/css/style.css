@@ -51,14 +51,13 @@ flex: 1;
 .inner-row-2,
 .inner-row-3 {
    flex: 1;
-   border: solid red;
+   text-align: center;
    
 }
 
 .col-2 {
    flex: 1;
    flex-direction: column;
-   border: solid red;
 }
 
 /* End Flexbox aspects (Baxley) */
@@ -73,6 +72,7 @@ flex: 1;
    border-style: outset;
    background-color: rgb(209, 122, 122);
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: center;
 }
 
 .saved-drink-container {

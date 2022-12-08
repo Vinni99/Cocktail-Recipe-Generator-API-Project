@@ -41,6 +41,7 @@ flex: 1;
 }
 
 .col-1 {
+   padding: 5px 15px 25px 10px;
    flex-direction: column;
    display: flex;
    flex: 1;
@@ -90,12 +91,9 @@ flex: 1;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.image-1 {
+.image-1, .image-2, .image-3, .image-4 {
    max-width: 200;
    max-height: auto;
 }
 
-.image-2 {
-   max-width: 200;
-   max-height: auto;
 

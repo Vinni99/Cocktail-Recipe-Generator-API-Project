@@ -95,5 +95,8 @@ flex: 1;
    max-width: 200;
    max-height: auto;
 }
-
+ 
+footer {
+   text-align: center;
+}
 

@@ -1,3 +1,4 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 body {
    background-image: linear-gradient(#b6a0a0, #ce5923);
    color: rgb(0, 0, 0);
@@ -17,18 +18,14 @@ body {
    flex: 1;
    display: flex;
    flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
 }
 
-.inner-col-1 {
-flex: 1;
-}
+.inner-col-1, .inner-col-2, .inner-col-3, .inner-col-4, .inner-col-5 {
+max-width: 160px;
+max-height: 160px;
 
-.inner-col-2 {
-   flex: 1;
-}
-
-.inner-col-3 {
-   flex: 1;
 
 }
 
@@ -91,9 +88,11 @@ flex: 1;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.image-1, .image-2, .image-3, .image-4 {
-   max-width: 200;
-   max-height: auto;
+.image-1,.image-2, .image-3, .image-4 {
+   width: 100%;
+   height:100%;
+   /* object-fit:contain; */
+   
 }
  
 footer {

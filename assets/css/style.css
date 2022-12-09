@@ -94,5 +94,8 @@ max-height: 160px;
    /* object-fit:contain; */
    
 }
-
+ 
+footer {
+   text-align: center;
+}
 

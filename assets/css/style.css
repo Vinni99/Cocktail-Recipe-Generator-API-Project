@@ -41,6 +41,7 @@ flex: 1;
 }
 
 .col-1 {
+   padding: 5px 15px 25px 10px;
    flex-direction: column;
    display: flex;
    flex: 1;
@@ -51,14 +52,13 @@ flex: 1;
 .inner-row-2,
 .inner-row-3 {
    flex: 1;
-   border: solid red;
+   text-align: center;
    
 }
 
 .col-2 {
    flex: 1;
    flex-direction: column;
-   border: solid red;
 }
 
 /* End Flexbox aspects (Baxley) */
@@ -73,6 +73,7 @@ flex: 1;
    border-style: outset;
    background-color: rgb(209, 122, 122);
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   text-align: center;
 }
 
 .saved-drink-container {
@@ -90,12 +91,9 @@ flex: 1;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.image-1 {
+.image-1, .image-2, .image-3, .image-4 {
    max-width: 200;
    max-height: auto;
 }
 
-.image-2 {
-   max-width: 200;
-   max-height: auto;
 

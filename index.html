@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Cocktail Recipe</title>
 </head>
@@ -15,22 +16,21 @@
     <!-- added the image on html-->
     <main class=flex-container>
         <section class="row-1">
-            <div class="image-1" class="inner-col-1">
-                <img src="API-project image.jpg" width="150px" height="150px" alt="cocktail">
-            </div>
-            <div class="image-2">
-                <img src="./API-project image 3.jpg" width="190px" height="150px" alt="cocktail">
+            <div class="inner-col-1" class="image is-128x128">
+                <img src="API-project image.jpg" alt="cocktail" class="image-1">
             </div>
             <div class="inner-col-2">
-                <h1 class="title">Cocktail Recipe Generator</h1>
+                <img src="./API-project image 3.jpg" alt="cocktail" class="image-2">
+            </div>
+            <div class="inner-col-3">
+                <h1 class="title"> Cocktail Recipe Generator</h1>
                 "Bottoms Up"
             </div>
-            <div class="image-3">
-                <img src="./API-project 4.jpg" width="190px" height="150px" alt="">
+            <div class="inner-col-4">
+                <img src="./API-project 4.jpg" alt="" class="image-3">
             </div>
-
-            <div class="image-4" class="inner-col-3">
-                <img src="API-project image 2.jpg" width="150px" height="150px" alt="cocktail-2">
+            <div class="inner-col-3">
+                <img src="./API-project image 2.jpg" alt="cocktail-2" class="image-4">
             </div>
         </section>
         <div class="row-2">
@@ -47,14 +47,15 @@
                 <div class="inner-row-2">
                     <form id="name-form" role="search">
                         <input type="search" id="drink-input" name="q" placeholder="Search..."
-                            aria-label="Search through site content">
-                        <button id="name-button">Search Name</button>
+                            aria-label="Search through site content" class="input is-danger" type="text"
+                            placeholder="Drink name">
+                        <button id="name-button" class="button is-danger">Search Drink</button>
                     </form>
                     <br>
                     <!-- <form id="random-drink-form" role="search">
                         <input type="search" id="random-drink-input" name="q" placeholder="Search..."
                             aria-label="Search through site content"> -->
-                    <button id="random-drink-button">Try a New Drink</button>
+                    <button id="random-drink-button" class="button is-danger">Try a Random Drink</button>
                     <!-- </form> -->
                 </div>
 
@@ -90,5 +91,6 @@
     </footer>
     <script src="./assets/js/script.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" ;></script>
 
 </html>

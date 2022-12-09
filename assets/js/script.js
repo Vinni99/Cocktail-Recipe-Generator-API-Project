@@ -68,9 +68,10 @@ function getDrinks(event) {
         drinkButton.setAttribute("id",`${i}`)
         var ingredientContainer = document.createElement('ul');
 
-        // console.log(drinkData.drinks[i])
-        // drinkTitle.textContent = drinkData.drinks[i].strDrink;
-        drinkButton.textContent = drinkData.drinks[i].strDrink;
+        console.log(drinkData.drinks[i])
+        drinkTitle.textContent = drinkData.drinks[i].strDrink;
+        drinkButton.textContent = "Save Drink";
+        drinkButton.className = "button is-danger";
         
         var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7, drinkData.drinks[i].strIngredient8,drinkData.drinks[i].strIngredient9,drinkData.drinks[i].strIngredient10,drinkData.drinks[i].strIngredient11,drinkData.drinks[i].strIngredient12,drinkData.drinks[i].strIngredient13,drinkData.drinks[i].strIngredient14,drinkData.drinks[i].strIngredient15,]
         
@@ -133,6 +134,7 @@ function getRandomDrink(event) {
         // console.log(randomDrinkData.drinks[i])
         drinkTitle.textContent = randomDrinkData.drinks[i].strDrink;
         drinkButton.textContent = "Save Drink"
+        
         
         var randomDrinkIngredients = [randomDrinkData.drinks[i].strIngredient1, randomDrinkData.drinks[i].strIngredient2, randomDrinkData.drinks[i].strIngredient3, randomDrinkData.drinks[i].strIngredient4, randomDrinkData.drinks[i].strIngredient5, randomDrinkData.drinks[i].strIngredient6, randomDrinkData.drinks[i].strIngredient7, randomDrinkData.drinks[i].strIngredient8, randomDrinkData.drinks[i].strIngredient9, randomDrinkData.drinks[i].strIngredient10, randomDrinkData.drinks[i].strIngredient11,randomDrinkData.drinks[i].strIngredient12, randomDrinkData.drinks[i].strIngredient13, randomDrinkData.drinks[i].strIngredient14, randomDrinkData.drinks[i].strIngredient15,]
 

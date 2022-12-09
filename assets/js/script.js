@@ -111,7 +111,7 @@ function getRandomDrink(event) {
 
   fetch(requestUrl2)
     .then(function (response) {
-        return response.json();
+         return response.json();
     })
 
     .then(function (randomDrinkData) {
@@ -172,7 +172,7 @@ function handleSaveButtonClick(event) {
   let name = event.target.textContent
   // console.log(name)
   let btn = event.target;
-  // console.log(btn)
+  //  console.log(btn)
   var index = event.target.getAttribute("id")
   localStorage.setItem(index, JSON.stringify(name));
   

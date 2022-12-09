@@ -37,7 +37,8 @@
 var searchedDrinks = document.getElementById("searched-drink-id")
 var fetchNameButton = document.getElementById("name-button")
 var fetchRandomButton = document.getElementById("random-drink-button")
-var drinkButton =document.createElement('button');
+var drinkButton = document.createElement('button');
+// var savedDrink = docuemnt.querySelector()
 
 
 function getDrinks(event) {
@@ -122,8 +123,8 @@ function getRandomDrink(event) {
         // this could also be a button element
         // var drinkTitle = document.createElement('h4');
         var drinkButton = document.createElement('button');
-        drinkButton.setAttribute("class","save-drink-button")
-        drinkButton.setAttribute("id",`${i}`)
+        drinkButton.setAttribute("class","save-drink-button");
+        drinkButton.setAttribute("id",`${i}`);
         var ingredientContainer = document.createElement('ul');
 
         // console.log(randomDrinkData.drinks[i])
@@ -165,37 +166,38 @@ function handleSaveButtonClick(event) {
     return;
   }
   let name = event.target.textContent
-  console.log(name)
-  let btn = event.target;
+  // console.log(name)
+  // let btn = event.target;
   // console.log(btn)
   var index = event.target.getAttribute("id")
   localStorage.setItem(index, JSON.stringify(name));
   
-  console.log(event.target.getAttribute("id"))
+  // console.log(index)
 
-
+  
+  // console.log(savedDrinkLocal)
+  if (savedDrinkLocal !== null){
+    var savedDrinkContainer = document.createElement('ul')
+    // console.log(savedDrinkContainer)
+    var savedDrink = document.createElement('li')
+    // console.log(savedDrink)
+    var savedDrinkLocal = localStorage.getItem(index)
+console.log(savedDrinkLocal)  
+    savedDrinkLocal.textContent = savedDrink
+  }
+  savedDrink.append(savedDrinkLocal)
 }
 
+
+
+
+
 // var drink = document.getElementById("");
-var saveDrinkButton = document.getElementById("save-drink-button");
-var savedDrinkLocal = document.getElementById("saved-drink-id");
+// var saveDrinkButton = document.getElementById("save-drink-button");
+
 
 document.body.addEventListener("click",handleSaveButtonClick) 
 
-
-
-// saveDrinkButton.addEventListener("click", handleSaveButtonClick) 
-//   event.preventDefault();
-//   var savedDrink = event.target;
-
-// console.log(drinkTitle)
-// console.log(randomDrinkIngredients)
-
-// if (savedDrink.matches("button") === true) {
-//   var localDrink = savedDrink.parentElement.getItem("savedDrink");
-
-// }
-// };
 
 
 

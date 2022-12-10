@@ -178,26 +178,42 @@ function handleSaveButtonClick(event) {
   // console.log(savedDrinkLocal)
  if(savedDrinkLocal !== null){
     var savedDrinkContainer = document.getElementById('saved')
+    var deleteDrink = document.createElement("button")
+    deleteDrink.setAttribute('id', 'delete-btn')
+    deleteDrink.innerText = "delete drink"
     // console.log(savedDrinkContainer)
     var savedDrink = document.createElement('ul')
     // console.log(savedDrink)
     var savedDrinkLocal = localStorage.getItem(index)
 console.log(savedDrinkLocal)  
     savedDrinkLocal.textContent = savedDrink
-  }
+
+      }
+      
+  
   
 
-  savedDrinkContainer.append(drinkButton, savedDrink)
+  savedDrinkContainer.append(savedDrink, deleteDrink)
   savedDrink.append(savedDrinkLocal)
+
 }
-    
+// var deleteDrink = new Boolean(false);
+// var drinks = [];
 
-
+// deleteDrink.addEventListener('click', function(event){
+//   var buttonElement = event.target;
+//   if (buttonElement.matches('button') === true) {
+//   var index = buttonElement.parentElement.getAttribute('data-index');
+//   drinks.splice(index, 1);
+//   console.log(index)
+     
+//   } 
+  
+  
+// }); 
 
 // var drink = document.getElementById("");
 // var saveDrinkButton = document.getElementById("save-drink-button");
-
-
 document.body.addEventListener("click",handleSaveButtonClick) 
 
 

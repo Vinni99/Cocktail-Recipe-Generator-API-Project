@@ -48,7 +48,7 @@ function getDrinks(event) {
     var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer;
 // var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
   // console.log(requestUrl1)
-
+  document.getElementById("searched-drink-id").innerHTML = "";
   fetch(requestUrl1)
     .then(function (response) {
         return response.json();
@@ -61,7 +61,8 @@ function getDrinks(event) {
         var drinkContainerEl = document.createElement('div')
         // this could also be a button element
         // var drinkTitle =document.createElement('h4');
-        var drinkButton =document.createElement('button');
+        var drinkButton = document.createElement('button');
+        drinkButton.addEventListener("click",handleSaveButtonClick)
         drinkButton.setAttribute("class","save-drink-button")
         drinkButton.setAttribute("id",`${i}`)
         var ingredientContainer = document.createElement('ul');
@@ -70,7 +71,9 @@ function getDrinks(event) {
         // drinkTitle.textContent = drinkData.drinks[i].strDrink;
         drinkButton.textContent = drinkData.drinks[i].strDrink;
         // drinkButton.className = "button is-danger";
-        
+  
+  
+
         var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7, drinkData.drinks[i].strIngredient8,drinkData.drinks[i].strIngredient9,drinkData.drinks[i].strIngredient10,drinkData.drinks[i].strIngredient11,drinkData.drinks[i].strIngredient12,drinkData.drinks[i].strIngredient13,drinkData.drinks[i].strIngredient14,drinkData.drinks[i].strIngredient15,]
         
         // console.log(drinkIngredients)
@@ -106,7 +109,7 @@ function getRandomDrink(event) {
     var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
   // console.log(requestUrl2)
-
+  document.getElementById("searched-drink-id").innerHTML = "";
   fetch(requestUrl2)
     .then(function (response) {
          return response.json();
@@ -123,6 +126,7 @@ function getRandomDrink(event) {
         // this could also be a button element
         // var drinkTitle = document.createElement('h4');
         var drinkButton = document.createElement('button');
+        drinkButton.addEventListener("click",handleSaveButtonClick)
         drinkButton.setAttribute("class","save-drink-button");
         drinkButton.setAttribute("id",`${i}`);
         var ingredientContainer = document.createElement('ul');
@@ -179,27 +183,42 @@ function handleSaveButtonClick(event) {
   // console.log(savedDrinkLocal)
  if(savedDrinkLocal !== null){
     var savedDrinkContainer = document.getElementById('saved')
-    var deleteDrink = document.createElement
-    
+    var deleteDrink = document.createElement("button")
+    deleteDrink.setAttribute('id', 'delete-btn')
+    deleteDrink.innerText = "delete drink"
+    // console.log(savedDrinkContainer)
     var savedDrink = document.createElement('ul')
     var savedDrinkLocal = JSON.parse(localStorage.getItem(index))
     console.log(savedDrinkLocal)  
     savedDrinkLocal.textContent = savedDrink
-  }
+
+      }
+      
+  
   
 
-  savedDrinkContainer.append(savedDrink)
+  savedDrinkContainer.append(savedDrink, deleteDrink)
   savedDrink.append(savedDrinkLocal)
+
 }
-    
+// var deleteDrink = new Boolean(false);
+// var drinks = [];
 
-
+// deleteDrink.addEventListener('click', function(event){
+//   var buttonElement = event.target;
+//   if (buttonElement.matches('button') === true) {
+//   var index = buttonElement.parentElement.getAttribute('data-index');
+//   drinks.splice(index, 1);
+//   console.log(index)
+     
+//   } 
+  
+  
+// }); 
 
 // var drink = document.getElementById("");
 // var saveDrinkButton = document.getElementById("save-drink-button");
-
-
-document.body.addEventListener("click",handleSaveButtonClick) 
+//drinkButton.addEventListener("click",handleSaveButtonClick) 
 
 
 

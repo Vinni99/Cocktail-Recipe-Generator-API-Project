@@ -109,7 +109,7 @@ function getRandomDrink(event) {
 
   fetch(requestUrl2)
     .then(function (response) {
-        return response.json();
+         return response.json();
     })
 
     .then(function (randomDrinkData) {
@@ -176,7 +176,7 @@ function handleSaveButtonClick(event) {
 
   
   // console.log(savedDrinkLocal)
-  if (savedDrinkLocal !== null){
+ if(savedDrinkLocal !== null){
     var savedDrinkContainer = document.getElementById('saved')
     // console.log(savedDrinkContainer)
     var savedDrink = document.createElement('ul')
@@ -185,11 +185,12 @@ function handleSaveButtonClick(event) {
     console.log(savedDrinkLocal)  
     savedDrinkLocal.textContent = savedDrink
   }
+  
+
   savedDrinkContainer.append(drinkButton, savedDrink)
   savedDrink.append(savedDrinkLocal)
 }
-
-
+    
 
 
 

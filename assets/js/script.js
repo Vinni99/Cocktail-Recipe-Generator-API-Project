@@ -1,6 +1,3 @@
-
-
-
 //Todo
 //https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
@@ -22,7 +19,7 @@
 //James Code Work
 //Save Drink from the APi
     //add from JS a button to the API data
-    //Event Listenre
+    //Event Listener
     //Store to local storage
     //Add JS Elements
 
@@ -40,7 +37,8 @@
 var searchedDrinks = document.getElementById("searched-drink-id")
 var fetchNameButton = document.getElementById("name-button")
 var fetchRandomButton = document.getElementById("random-drink-button")
-var drinkButton =document.createElement('button');
+var drinkButton = document.createElement('button');
+// var savedDrink = docuemnt.querySelector()
 
 
 function getDrinks(event) {
@@ -62,16 +60,16 @@ function getDrinks(event) {
 
         var drinkContainerEl = document.createElement('div')
         // this could also be a button element
-        var drinkTitle =document.createElement('h4');
+        // var drinkTitle =document.createElement('h4');
         var drinkButton =document.createElement('button');
         drinkButton.setAttribute("class","save-drink-button")
         drinkButton.setAttribute("id",`${i}`)
         var ingredientContainer = document.createElement('ul');
 
-        console.log(drinkData.drinks[i])
-        drinkTitle.textContent = drinkData.drinks[i].strDrink;
-        drinkButton.textContent = "Save Drink";
-        drinkButton.className = "button is-danger";
+        // console.log(drinkData.drinks[i])
+        // drinkTitle.textContent = drinkData.drinks[i].strDrink;
+        drinkButton.textContent = drinkData.drinks[i].strDrink;
+        // drinkButton.className = "button is-danger";
         
         var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7, drinkData.drinks[i].strIngredient8,drinkData.drinks[i].strIngredient9,drinkData.drinks[i].strIngredient10,drinkData.drinks[i].strIngredient11,drinkData.drinks[i].strIngredient12,drinkData.drinks[i].strIngredient13,drinkData.drinks[i].strIngredient14,drinkData.drinks[i].strIngredient15,]
         
@@ -91,8 +89,8 @@ function getDrinks(event) {
           ingredientContainer.append(drinkRowData)
         }
 // comment this back in to display the button next to the drink name
-        drinkTitle.append(drinkButton)
-        drinkContainerEl.append(drinkTitle,ingredientContainerTitle, ingredientContainer)
+        // drinkButton.append(drinkButton)
+        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer)
         searchedDrinks.append(drinkContainerEl)
         // drinkRowData.appendChild(createDrinkRow)
 
@@ -111,7 +109,7 @@ function getRandomDrink(event) {
 
   fetch(requestUrl2)
     .then(function (response) {
-        return response.json();
+         return response.json();
     })
 
     .then(function (randomDrinkData) {
@@ -123,18 +121,16 @@ function getRandomDrink(event) {
 
         var drinkContainerEl = document.createElement('div')
         // this could also be a button element
-        var drinkTitle =document.createElement('h4');
-        var drinkButton =document.createElement('button');
-        drinkButton.setAttribute("class","save-drink-button")
-        drinkButton.setAttribute("id",`${i}`)
-        
-       
+        // var drinkTitle = document.createElement('h4');
+        var drinkButton = document.createElement('button');
+        drinkButton.setAttribute("class","save-drink-button");
+        drinkButton.setAttribute("id",`${i}`);
         var ingredientContainer = document.createElement('ul');
 
         // console.log(randomDrinkData.drinks[i])
-        drinkTitle.textContent = randomDrinkData.drinks[i].strDrink;
-        drinkButton.textContent = "Save Drink"
-        
+        // drinkTitle.textContent = randomDrinkData.drinks[i].strDrink;
+        drinkButton.textContent = randomDrinkData.drinks[i].strDrink;
+        // drinkButton.className = "button is-danger";
         
         var randomDrinkIngredients = [randomDrinkData.drinks[i].strIngredient1, randomDrinkData.drinks[i].strIngredient2, randomDrinkData.drinks[i].strIngredient3, randomDrinkData.drinks[i].strIngredient4, randomDrinkData.drinks[i].strIngredient5, randomDrinkData.drinks[i].strIngredient6, randomDrinkData.drinks[i].strIngredient7, randomDrinkData.drinks[i].strIngredient8, randomDrinkData.drinks[i].strIngredient9, randomDrinkData.drinks[i].strIngredient10, randomDrinkData.drinks[i].strIngredient11,randomDrinkData.drinks[i].strIngredient12, randomDrinkData.drinks[i].strIngredient13, randomDrinkData.drinks[i].strIngredient14, randomDrinkData.drinks[i].strIngredient15,]
 
@@ -152,8 +148,8 @@ function getRandomDrink(event) {
           ingredientContainer.append(drinkRowData)
         }
 // comment this back in to display the button next to the drink name
-        drinkTitle.append(drinkButton)
-        drinkContainerEl.append(drinkTitle,ingredientContainerTitle, ingredientContainer)
+        // drinkButton.append(drinkButton)
+        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer)
         searchedDrinks.append(drinkContainerEl)
       }
     })   
@@ -171,35 +167,39 @@ function handleSaveButtonClick(event) {
   }
   let name = event.target.textContent
   // console.log(name)
-  let btn = event.target;
+  // let btn = event.target;
   // console.log(btn)
   var index = event.target.getAttribute("id")
   localStorage.setItem(index, JSON.stringify(name));
   
-  // console.log(event.target.getAttribute("id"))
+  // console.log(index)
 
+  
+  // console.log(savedDrinkLocal)
+ if(savedDrinkLocal !== null){
+    var savedDrinkContainer = document.getElementById('saved')
+    // console.log(savedDrinkContainer)
+    var savedDrink = document.createElement('ul')
+    // console.log(savedDrink)
+    var savedDrinkLocal = localStorage.getItem(index)
+console.log(savedDrinkLocal)  
+    savedDrinkLocal.textContent = savedDrink
+  }
+  
 
+  savedDrinkContainer.append(drinkButton, savedDrink)
+  savedDrink.append(savedDrinkLocal)
 }
+    
+
+
 
 // var drink = document.getElementById("");
-var saveDrinkButton = document.getElementById("save-drink-button");
-var savedDrinkLocal = document.getElementById("saved-drink-id");
-
-document.body.addEventListener("click",handleSaveButtonClick)
+// var saveDrinkButton = document.getElementById("save-drink-button");
 
 
-// saveDrinkButton.addEventListener("click", handleSaveButtonClick) 
-//   event.preventDefault();
-//   var savedDrink = event.target;
+document.body.addEventListener("click",handleSaveButtonClick) 
 
-// console.log(drinkTitle)
-// console.log(randomDrinkIngredients)
-
-// if (savedDrink.matches("button") === true) {
-//   var localDrink = savedDrink.parentElement.getItem("savedDrink");
-
-// }
-// };
 
 
 

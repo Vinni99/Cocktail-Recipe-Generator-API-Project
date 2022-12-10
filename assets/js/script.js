@@ -37,7 +37,7 @@
 var searchedDrinks = document.getElementById("searched-drink-id")
 var fetchNameButton = document.getElementById("name-button")
 var fetchRandomButton = document.getElementById("random-drink-button")
-var drinkButton = document.createElement('button');
+// var drinkButton = document.createElement('button');
 // var savedDrink = docuemnt.querySelector()
 
 
@@ -170,6 +170,7 @@ function handleSaveButtonClick(event) {
   // let btn = event.target;
   // console.log(btn)
   var index = event.target.getAttribute("id")
+  console.log(index)
   localStorage.setItem(index, JSON.stringify(name));
   
   // console.log(index)
@@ -178,16 +179,16 @@ function handleSaveButtonClick(event) {
   // console.log(savedDrinkLocal)
  if(savedDrinkLocal !== null){
     var savedDrinkContainer = document.getElementById('saved')
-    // console.log(savedDrinkContainer)
+    var deleteDrink = document.createElement
+    
     var savedDrink = document.createElement('ul')
-    // console.log(savedDrink)
-    var savedDrinkLocal = localStorage.getItem(index)
+    var savedDrinkLocal = JSON.parse(localStorage.getItem(index))
     console.log(savedDrinkLocal)  
     savedDrinkLocal.textContent = savedDrink
   }
   
 
-  savedDrinkContainer.append(drinkButton, savedDrink)
+  savedDrinkContainer.append(savedDrink)
   savedDrink.append(savedDrinkLocal)
 }
     

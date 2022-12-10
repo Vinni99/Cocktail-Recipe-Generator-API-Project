@@ -176,19 +176,21 @@ function handleSaveButtonClick(event) {
 
   
   // console.log(savedDrinkLocal)
-  if (savedDrinkLocal !== null){
-    var savedDrinkContainer = document.createElement('ul')
+ if(savedDrinkLocal !== null){
+    var savedDrinkContainer = document.getElementById('saved')
     // console.log(savedDrinkContainer)
-    var savedDrink = document.createElement('li')
+    var savedDrink = document.createElement('ul')
     // console.log(savedDrink)
     var savedDrinkLocal = localStorage.getItem(index)
 console.log(savedDrinkLocal)  
     savedDrinkLocal.textContent = savedDrink
   }
+  
+
+  savedDrinkContainer.append(drinkButton, savedDrink)
   savedDrink.append(savedDrinkLocal)
 }
-
-
+    
 
 
 

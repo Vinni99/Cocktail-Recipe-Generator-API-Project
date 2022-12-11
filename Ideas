@@ -1,3 +1,34 @@
+//Todo
+//https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
+//Billy Code Work 
+//Get Drink from API by drink name
+    //Event Listener
+    //Click button
+    //Fetch call to API
+    //fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a").then(function(response){
+  //return response.json()}).then(function (data){console.log(data)})
+        //Pick what info we want (Parameters)
+        //Display the fetched API data
+        //https://w3collective.com/fetch-display-api-data-javascript/
+//Get Drink from API by drink ingredient
+    //See above
+//James Code Work
+//Save Drink from the APi
+    //add from JS a button to the API data
+    //Event Listener
+    //Store to local storage
+    //Add JS Elements
+//Vinicius Code Work
+//CSS  structure and code work
+//Kim Code Work
+//Event Listener for button
+//$(".saveBtn").on("click", function () {
+    //Sets the variable for the input of whatever the user puts into the writable section. 
+   //var input = $(this).siblings(".searched-drink").val();
+     //Save input  data to local storage
+      //console.log (input)
+ //});
+
 for (var i = 0; i < issues.length; i++) {
   var issueEl = document.createElement('a');
   issueEl.classList = 'list-item flex-row justify-space-between align-center';

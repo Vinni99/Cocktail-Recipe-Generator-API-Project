@@ -33,13 +33,6 @@ function getDrinks(event) {
         var instructions = drinkData.drinks[i].strInstructions;
         var instructionsText = "Instructions: ";
         var ingredientContainer = document.createElement('ul');
-        var drinkThumb = document.createElement("img")
-        console.log(drinkData.drinks[i])
-        drinkTitle.textContent = drinkData.drinks[i].strDrink;
-        drinkButton.textContent = "Save Drink";
-        drinkButton.className = "button is-danger";
-
-        drinkThumb.textContent = drinkData.drinks[i].strDrinkThumb;
 
         // console.log(drinkData.drinks[i])
        
@@ -77,7 +70,7 @@ function getRandomDrink(event) {
   document.getElementById("searched-drink-id").innerHTML = "";
   fetch(requestUrl2)
     .then(function (response) {
-        return response.json();
+         return response.json();
     })
     .then(function (randomDrinkData) {
       // console.log(randomDrinkData);

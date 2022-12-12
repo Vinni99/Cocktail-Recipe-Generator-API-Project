@@ -34,7 +34,7 @@ function getDrinks(event) {
             drinkButton.textContent = drinkData.drinks[i].strDrink;
             drinkButton.className = "button is-danger";
         var instructions = drinkData.drinks[i].strInstructions;
-        var instructionsText = "Instructions: ";
+
         var ingredientContainer = document.createElement('ul');
 
         // console.log(drinkData.drinks[i]);
@@ -43,6 +43,10 @@ function getDrinks(event) {
 
         var ingredientContainerTitle = document.createElement('h4');
         ingredientContainerTitle.textContent = 'Ingredients: ';
+        var instructionTitle = document.createElement('h4');
+        instructionTitle.textContent = 'Instructions: ';
+        var instructionsContainer = document.createElement('p');
+         instructionsContainer.textContent = instructions;
 
         for(var j=0; j< drinkIngredients.length; j++){
           if (drinkIngredients[j] !== null){
@@ -55,8 +59,8 @@ function getDrinks(event) {
         }
 // comment this back in to display the button next to the drink name
         // drinkButton.append(drinkButton)
-        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer);
-        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer, instructionsText + instructions);
+        // drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer);
+        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer, instructionTitle, instructionsContainer );
         searchedDrinks.append(drinkContainerEl);
       }
 })   
@@ -88,17 +92,19 @@ function getRandomDrink(event) {
             drinkButton.className = "button is-danger";
         var instructions = randomDrinkData.drinks[i].strInstructions;
         
-        var  instructionsText = "Instructions: ";
-            
         var ingredientContainer = document.createElement('ul');
+        var ingredientContainerTitle = document.createElement('h4');
+        ingredientContainerTitle.textContent = 'Ingredients: ';
         // console.log(randomDrinkData.drinks[i]);
         
-        
-
         var randomDrinkIngredients = [randomDrinkData.drinks[i].strIngredient1, randomDrinkData.drinks[i].strIngredient2, randomDrinkData.drinks[i].strIngredient3, randomDrinkData.drinks[i].strIngredient4, randomDrinkData.drinks[i].strIngredient5, randomDrinkData.drinks[i].strIngredient6, randomDrinkData.drinks[i].strIngredient7, randomDrinkData.drinks[i].strIngredient8, randomDrinkData.drinks[i].strIngredient9, randomDrinkData.drinks[i].strIngredient10, randomDrinkData.drinks[i].strIngredient11,randomDrinkData.drinks[i].strIngredient12, randomDrinkData.drinks[i].strIngredient13, randomDrinkData.drinks[i].strIngredient14, randomDrinkData.drinks[i].strIngredient15,];
 
-        var ingredientContainerTitle = document.createElement('h4')
-        ingredientContainerTitle.textContent = 'Ingredients: '
+        
+        var instructionTitle = document.createElement('h4');
+        instructionTitle.textContent = 'Instructions: ';
+        var instructionsContainer = document.createElement('p');
+        instructionsContainer.textContent = instructions;
+
 
         for(var j=0; j< randomDrinkIngredients.length; j++) {
           if (randomDrinkIngredients[j] !== null){
@@ -107,10 +113,9 @@ function getRandomDrink(event) {
           }
                 ingredientContainer.append(drinkRowData);
         }
-// comment this back in to display the button next to the drink name
-        // drinkButton.append(drinkButton);
-        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer);
-        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer, instructionsText + instructions);
+
+     
+        drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer, instructionTitle, instructionsContainer );
         searchedDrinks.append(drinkContainerEl);
 
       }

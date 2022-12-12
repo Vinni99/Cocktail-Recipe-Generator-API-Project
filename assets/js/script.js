@@ -129,7 +129,7 @@ function handleSaveButtonClick(event) {
       var deleteDrinkBtn = document.createElement("button"); 
       deleteDrinkBtn.setAttribute("id", "delete-btn"); 
       deleteDrinkBtn.className = "button is-danger";
-      deleteDrinkBtn.innerText = "delete drink"; 
+      deleteDrinkBtn.innerText = "Delete Drink"; 
       deleteDrinkBtn.addEventListener("click", handleDeleteButton); 
       var savedDrink = document.createElement("ul"); 
       savedDrink.setAttribute("id", name); 
@@ -156,7 +156,7 @@ let renderSavedDrinks = () => {
     var deleteDrinkBtn = document.createElement("button"); 
     deleteDrinkBtn.setAttribute("id", "delete-btn"); 
     deleteDrinkBtn.className = "button is-danger";
-    deleteDrinkBtn.innerText = "delete drink"; 
+    deleteDrinkBtn.innerText = "Delete Drink"; 
     deleteDrinkBtn.addEventListener("click", handleDeleteButton); 
     var savedDrink = document.createElement("ul"); 
     savedDrink.setAttribute("id", key); 

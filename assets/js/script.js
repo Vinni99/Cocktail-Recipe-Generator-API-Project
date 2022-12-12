@@ -143,11 +143,11 @@ function handleSaveButtonClick(event) {
   }
 } 
 
-function handleDeleteButton(e) { 
-  var localStorageKey = e.target.previousElementSibling.textContent
+function handleDeleteButton(event) { 
+  var localStorageKey = event.target.previousElementSibling.textContent
   localStorage.removeItem(localStorageKey);
-  e.target.previousElementSibling.remove(); 
-  e.target.remove(); 
+  event.target.previousElementSibling.remove(); 
+  event.target.remove(); 
 }
 
 let renderSavedDrinks = () => { 

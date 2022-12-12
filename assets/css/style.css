@@ -5,6 +5,10 @@ body {
    flex-wrap: wrap;
 }
 
+h4 {
+   font-weight: bold;
+}
+
 /* FlexBox aspects for HTML page (Baxley) */
 .flex-container {
    display: flex;
@@ -80,6 +84,10 @@ max-height: 160px;
    text-align: center;
 
 }
+
+/* .saved-drinks {
+   list-style: none;
+} */
 
 .saved-drinks {
 

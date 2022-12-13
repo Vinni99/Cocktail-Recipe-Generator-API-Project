@@ -41,8 +41,8 @@ No Installation Steps
 
 ## Usage
 
-This project can be initiated by entering in a drink name or even a letter" into the search field and selecting the find drink button. The user can also select the random drink button for pulling a random drink from the array. 
-![Alt text](add images of the webpage)
+This project can be initiated by entering in a drink name or even a letter" into the search field and selecting the find drink button. The user can also select the random drink button for pulling a random drink from the array.
+[Alt text](assets/images/Coctail%20Recipe%20Generator%20image%200.jpg)![Alt text](assets/images/Coctail%20Recipe%20Generator%20image%201.jpg)
 
 ## Credits
 

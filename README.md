@@ -2,7 +2,7 @@
 
 ## Description
 
-This project was the creation of a webpage that utilized API application to search and render data and then store it in local storage and render it again on a separate section of the page. The data collected for this specific API was a drink recipe API located at https://www.thecocktaildb.com/api.php The webpage allows for the user to search a specific drink and then see its ingredients and instructions. The user may also select the random drink button, and have a random drink created for them. The final aspect of the webpage is for the user to save drinks in the local storage and create a list of drinks to try, keeping them or deleting them as needed (Link ot live page).
+This project was the creation of a webpage that utilized API application to search and render data and then store it in local storage and render it again on a separate section of the page. The data collected for this specific API was a drink recipe API located at https://www.thecocktaildb.com/api.php The webpage allows for the user to search a specific drink and then see its ingredients and instructions. The user may also select the random drink button, and have a random drink created for them. The final aspect of the webpage is for the user to save drinks in the local storage and create a list of drinks to try, keeping them or deleting them as needed (https://vinni99.github.io/Cocktail-Recipe-Generator-API-Project/).
 
 The project utilized such technologies as the before mentioned API, as well as JQuery, CSS-Frameworks, septically Bulma.io, as well as the general HTML, CSS, and JS code.
 

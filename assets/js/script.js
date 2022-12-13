@@ -15,7 +15,7 @@ function getDrinks(event) {
     .then(function (response) {
         return response.json();
     })
-    //the below function returns the objects of of each drink.  Each object contains an array of drinks found in search. Each drink is a string containing many lines of data for each drink
+    //the below function returns arrays of objects for each drink.  
     .then(function (drinkData) { 
       
       for(let i = 0; i < drinkData.drinks.length; i++) { //loops through the entire array of each returned drink
@@ -67,7 +67,7 @@ function getRandomDrink(event) {
     .then(function (response) {
          return response.json();
     })
-     //the below function returns the objects of of each drink.  Each object contains an array of drinks found in search. Each drink is a string containing many lines of data for each drink
+   //the below function returns arrays of objects for each drink.  
     .then(function (randomDrinkData) {
  
           for(let i = 0; i < randomDrinkData.drinks.length; i++) { //loops through the entire array of each returned drink

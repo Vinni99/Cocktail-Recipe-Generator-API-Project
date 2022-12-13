@@ -1,116 +1,105 @@
-var searchedDrinks = document.getElementById("searched-drink-id");
-var fetchNameButton = document.getElementById("name-button");
-var fetchRandomButton = document.getElementById("random-drink-button");
-var deleteDrinkBtn = document.createElement('button');
-var deletedDrinks = "";
-// var drinkButton = document.createElement('button');
-// var savedDrink = docuemnt.querySelector();
+var searchedDrinks = document.getElementById("searched-drink-id"); //corresponds to the div that houses the drinks that are returned from search field.
+var fetchNameButton = document.getElementById("name-button");//is the button element to search for drink
+var fetchRandomButton = document.getElementById("random-drink-button");//is the button element to search for a random drink
+var deleteDrinkBtn = document.createElement('button');//creates the Delete Drink button on Saved Drinks list
 
+// the below function returns all drinks containing the value of the search input and is activated by event listener on line 112
 function getDrinks(event) {
   event.preventDefault();
-  var searchedDrinkName = document.getElementById("drink-input").value;
-  // console.log(searchedDrinkName);
-  var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchedDrinkName;
+  var searchedDrinkName = document.getElementById("drink-input").value; //captures the value of the input to the search field
 
-// var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
+  var requestUrl1 = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchedDrinkName;//concats the input value to the API
 
   document.getElementById("searched-drink-id").innerHTML = "";
-  fetch(requestUrl1)
+  fetch(requestUrl1) //fetch request to API
     .then(function (response) {
         return response.json();
     })
-//Need to define what the for loop is looking for here or at least before the for loop itself
-    .then(function (drinkData) {
-      // console.log(drinkData)
-      for(let i = 0; i < drinkData.drinks.length; i++) {
-        var drinkContainerEl = document.createElement('div');
-        // this could also be a button element per comment below
-        // var drinkTitle =document.createElement('h4');
-        // drinkTitle.textContent = drinkData.drinks[i].strDrink;
-        var drinkButton = document.createElement('button');
+    //the below function returns the objects of of each drink.  Each object contains an array of drinks found in search. Each drink is a string containing many lines of data for each drink
+    .then(function (drinkData) { 
+      
+      for(let i = 0; i < drinkData.drinks.length; i++) { //loops through the entire array of each returned drink
+        var drinkContainerEl = document.createElement('div'); //creates the div to house each returned drink
+        console.log(drinkData)
+        var drinkButton = document.createElement('button');//button with text of drink name that will saved to local storage and saved drinks list
             drinkButton.addEventListener("click",handleSaveButtonClick);
             drinkButton.setAttribute("class","save-drink-button");
             drinkButton.setAttribute("id",`${i}`);
             drinkButton.textContent = drinkData.drinks[i].strDrink;
             drinkButton.className = "button is-danger";
-        var instructions = drinkData.drinks[i].strInstructions;
+        var instructions = drinkData.drinks[i].strInstructions;//returns instructions for each returned drink
 
-        var ingredientContainer = document.createElement('ul');
-
-        // console.log(drinkData.drinks[i]);
+        var ingredientContainer = document.createElement('ul');//creates list for drink ingredients
        
+        //captures each potential line of drink ingredients up to 15 max from drink object
         var drinkIngredients = [drinkData.drinks[i].strIngredient1, drinkData.drinks[i].strIngredient2, drinkData.drinks[i].strIngredient3, drinkData.drinks[i].strIngredient4, drinkData.drinks[i].strIngredient5, drinkData.drinks[i].strIngredient6, drinkData.drinks[i].strIngredient7, drinkData.drinks[i].strIngredient8,drinkData.drinks[i].strIngredient9,drinkData.drinks[i].strIngredient10,drinkData.drinks[i].strIngredient11,drinkData.drinks[i].strIngredient12,drinkData.drinks[i].strIngredient13,drinkData.drinks[i].strIngredient14,drinkData.drinks[i].strIngredient15,];
 
-        var ingredientContainerTitle = document.createElement('h4');
-        ingredientContainerTitle.textContent = 'Ingredients: ';
-        var instructionTitle = document.createElement('h4');
-        instructionTitle.textContent = 'Instructions: ';
-        var instructionsContainer = document.createElement('p');
-         instructionsContainer.textContent = instructions;
+        var ingredientContainerTitle = document.createElement('h4');//creates heading for the word ingredients
+        ingredientContainerTitle.textContent = 'Ingredients: ';//text content for word ingredients
+        var instructionTitle = document.createElement('h4');//creates heading for the word instructions
+        instructionTitle.textContent = 'Instructions: ';//text content for word instructions
+        var instructionsContainer = document.createElement('p');//creates p for the word ingredients
+         instructionsContainer.textContent = instructions;//text content for instructions
 
+         //for loop to drill into the drink's ingredient data and not return if null
         for(var j=0; j< drinkIngredients.length; j++){
           if (drinkIngredients[j] !== null){
             var drinkRowData = document.createElement('li');
         
             drinkRowData.textContent = drinkIngredients[j];
           }
-          
+          //series of appending elements to render the returned drinks and associated data
           ingredientContainer.append(drinkRowData);
         }
-// comment this back in to display the button next to the drink name
-        // drinkButton.append(drinkButton)
-        // drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer);
+
         drinkContainerEl.append(drinkButton,ingredientContainerTitle, ingredientContainer, instructionTitle, instructionsContainer );
         searchedDrinks.append(drinkContainerEl);
       }
 })   
 };
-
+// the below function returns all drinks containing the value of the search input and is activated by event listener on line 113
 function getRandomDrink(event) {
   event.preventDefault();
-  var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-
-// var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE";
+  var requestUrl2 = "https://www.thecocktaildb.com/api/json/v1/1/random.php"//concats the input value to the API
 
   document.getElementById("searched-drink-id").innerHTML = "";
-  fetch(requestUrl2)
+  fetch(requestUrl2)//fetch request to API
     .then(function (response) {
          return response.json();
     })
+     //the below function returns the objects of of each drink.  Each object contains an array of drinks found in search. Each drink is a string containing many lines of data for each drink
     .then(function (randomDrinkData) {
-      // console.log(randomDrinkData);
-          for(let i = 0; i < randomDrinkData.drinks.length; i++) {
-        var drinkContainerEl = document.createElement('div');
-        // this could also be a button element per below
-        // var drinkTitle = document.createElement('h4');
-        // drinkTitle.textContent = randomDrinkData.drinks[i].strDrink;
-        var drinkButton = document.createElement('button');
+ 
+          for(let i = 0; i < randomDrinkData.drinks.length; i++) { //loops through the entire array of each returned drink
+        var drinkContainerEl = document.createElement('div');//creates the div to house each returned drink
+       
+        var drinkButton = document.createElement('button');//button with text of drink name that will saved to local storage and saved drinks list
             drinkButton.addEventListener("click",handleSaveButtonClick);
             drinkButton.setAttribute("class","save-drink-button");
             drinkButton.setAttribute("id",`${i}`);
             drinkButton.textContent = randomDrinkData.drinks[i].strDrink;
             drinkButton.className = "button is-danger";
-        var instructions = randomDrinkData.drinks[i].strInstructions;
+        var instructions = randomDrinkData.drinks[i].strInstructions;//returns instructions for each returned drink
         
-        var ingredientContainer = document.createElement('ul');
-        var ingredientContainerTitle = document.createElement('h4');
-        ingredientContainerTitle.textContent = 'Ingredients: ';
-        // console.log(randomDrinkData.drinks[i]);
-        
+        var ingredientContainer = document.createElement('ul');//creates list for drink ingredients
+        var ingredientContainerTitle = document.createElement('h4');//creates heading for the word ingredients
+        ingredientContainerTitle.textContent = 'Ingredients: ';//text content for Ingredients
+        //captures each potential line of drink ingredients up to 15 max from drink object
         var randomDrinkIngredients = [randomDrinkData.drinks[i].strIngredient1, randomDrinkData.drinks[i].strIngredient2, randomDrinkData.drinks[i].strIngredient3, randomDrinkData.drinks[i].strIngredient4, randomDrinkData.drinks[i].strIngredient5, randomDrinkData.drinks[i].strIngredient6, randomDrinkData.drinks[i].strIngredient7, randomDrinkData.drinks[i].strIngredient8, randomDrinkData.drinks[i].strIngredient9, randomDrinkData.drinks[i].strIngredient10, randomDrinkData.drinks[i].strIngredient11,randomDrinkData.drinks[i].strIngredient12, randomDrinkData.drinks[i].strIngredient13, randomDrinkData.drinks[i].strIngredient14, randomDrinkData.drinks[i].strIngredient15,];
 
         
-        var instructionTitle = document.createElement('h4');
-        instructionTitle.textContent = 'Instructions: ';
-        var instructionsContainer = document.createElement('p');
-        instructionsContainer.textContent = instructions;
+        var instructionTitle = document.createElement('h4');//creates heading for the word ingredients
+        instructionTitle.textContent = 'Instructions: ';//text content for word instructions
+        var instructionsContainer = document.createElement('p');//creates p for the word ingredients
+        instructionsContainer.textContent = instructions;//text content for instructions
 
-
+        //for loop to drill into the drink's ingredient data and not return if null   
         for(var j=0; j< randomDrinkIngredients.length; j++) {
           if (randomDrinkIngredients[j] !== null){
             var drinkRowData = document.createElement('li');
                 drinkRowData.textContent = randomDrinkIngredients[j];
           }
+                //series of appending elements to render the returned drinks and associated data
                 ingredientContainer.append(drinkRowData);
         }
 
@@ -122,9 +111,10 @@ function getRandomDrink(event) {
     })   
     }
     
-fetchNameButton.addEventListener('click', getDrinks);
-fetchRandomButton.addEventListener('click', getRandomDrink);
+fetchNameButton.addEventListener('click', getDrinks);//Event listener for Search Drink Button
+fetchRandomButton.addEventListener('click', getRandomDrink);//Event listener for Random Drink Button
 
+//Below function saves Returned drinks to local storage and Saved Drinks list in UI
 function handleSaveButtonClick(event) { 
   let name = event.target.textContent; 
   if (!localStorage.getItem(name)) {
@@ -141,13 +131,12 @@ function handleSaveButtonClick(event) {
       var savedDrinkLocal = JSON.parse(localStorage.getItem(name)); 
       savedDrinkLocal.textContent = savedDrink; 
     } 
+    //Appends drinks to Saved list
     savedDrinkContainer.append(savedDrink, deleteDrinkBtn); 
     savedDrink.append(savedDrinkLocal); 
-  } else {
-    console.log("item already exists in local database")
-  }
+  } 
 } 
-
+  //Below function deletes Returned drinks from local storage and deletes saved Drinks list in UI
 function handleDeleteButton(event) { 
   var localStorageKey = event.target.previousElementSibling.textContent
   localStorage.removeItem(localStorageKey);
@@ -155,6 +144,7 @@ function handleDeleteButton(event) {
   event.target.remove(); 
 }
 
+//below let re-renders the data on the saved drinks list.
 let renderSavedDrinks = () => { 
   Object.keys(localStorage).forEach((key) => { 
     var savedDrinkContainer = document.getElementById("saved"); 
@@ -171,7 +161,7 @@ let renderSavedDrinks = () => {
     savedDrink.append(savedDrinkLocal); 
   }); 
 }; 
-renderSavedDrinks();
+renderSavedDrinks();//calls the above
 
 
 

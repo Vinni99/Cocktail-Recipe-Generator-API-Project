@@ -1,3 +1,7 @@
+// var requestUrl2 = event.target.name === "nameSearch" ? "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkNameContainer : "Other API CALL HERE"
+
+
+
 //Todo
 //https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 //Billy Code Work 
